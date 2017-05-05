@@ -5,8 +5,13 @@ import Pass from '../../../src/components/Passes/Pass';
 
 describe('PassTable', () => {
     it('renders no Pass components without results', () => {
-        expect(shallow(<PassTable inFlight={'retrieved'} passes={[]}/>).find(Pass).length)
+        expect(shallow(<PassTable fetchState={{inFlight:false}} passes={[]}/>).find(Pass).length)
             .toBe(0);
+    });
+
+    it('shows message if getting passes', () => {
+        expect(shallow(<PassTable fetchState={{inFlight:true}} passes={[]}/>).text())
+            .toMatch(/Getting/);
     });
 
     it('renders row for each pass', () => {
@@ -41,7 +46,7 @@ describe('PassTable', () => {
             }
         ];
 
-        const passList = shallow(<PassTable inFlight={'retrieved'} passes={passes}/>);
+        const passList = shallow(<PassTable fetchState={{inFlight:false}} passes={passes}/>);
 
         expect(passList.find(Pass).length).toBe(4);
     });
