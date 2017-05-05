@@ -1,38 +1,16 @@
 import React, {Component} from 'react';
 import PassTable from '../../components/Passes/PassTable';
+import {connect} from 'react-redux';
+import {passesRequested} from '../../actions/index';
+import PropTypes from 'prop-types';
 
-// Temporary
-const passes = [
-    {
-        'id': 'random-id-0',
-        'aos': 1494001057,
-        'los': 1494002357,
-        'maxElevation': 41.5,
-        'groundStation': 'Tartu'
-    },
-    {
-        'id': 'random-id-1',
-        'aos': 1494014357,
-        'los': 1494015657,
-        'maxElevation': 23.5,
-        'groundStation': 'Tartu'
-    },
-    {
-        'id': 'random-id-2',
-        'aos': 1494027657,
-        'los': 1494059057,
-        'maxElevation': 39.5,
-        'groundStation': 'Tartu'
-    },
-    {
-        'id': 'random-id-3',
-        'aos': 1494079857,
-        'los': 1494109157,
-        'maxElevation': 41.5,
-        'groundStation': 'Tartu'
-    }
-];
 class Dashboard extends Component {
+    componentDidMount() {
+        // Get only if empty
+        if (this.props.passes.length === 0) {
+            this.props.onRequestPasses();
+        }
+    }
 
     render() {
         return (
@@ -40,7 +18,7 @@ class Dashboard extends Component {
                 Other stuff in menu.
                 <div className="row">
                     <div className="col-lg-12">
-                        <PassTable passes={passes} inFlight={'retrieved'}/>
+                        <PassTable passes={this.props.passes} fetchState={this.props.fetchState}/>
                     </div>
                 </div>
             </div>
@@ -48,4 +26,29 @@ class Dashboard extends Component {
     }
 }
 
-export default Dashboard;
+Dashboard.propTypes = {
+    passes: PropTypes.arrayOf(PropTypes.shape({
+        id: PropTypes.string.isRequired,
+        aos: PropTypes.number.isRequired,
+        los: PropTypes.number.isRequired,
+        maxElevation: PropTypes.number.isRequired,
+        groundStation: PropTypes.string.isRequired,
+
+    })).isRequired,
+    onRequestPasses: PropTypes.func.isRequired,
+    fetchState: PropTypes.shape({
+        inFlight: PropTypes.bool.isRequired,
+        error: PropTypes.string
+    }).isRequired
+};
+
+const mapStateToProps = (state) => ({
+    passes: state.passes.passes,
+    fetchState: state.passes.fetchState
+});
+
+const mapDispatchToProps = (dispatch) => ({
+    onRequestPasses: () => dispatch(passesRequested())
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Dashboard);

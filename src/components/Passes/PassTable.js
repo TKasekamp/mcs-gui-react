@@ -11,9 +11,10 @@ const PassTable = (props) => {
     return (
         <div className="card">
             <div className="card-header">
-                <i className="fa fa-align-justify"></i> Satellite passes
+                <i className="fa fa-align-justify"/> Satellite passes
             </div>
             <div className="card-block">
+                {props.fetchState.inFlight ? 'Getting passes...' : ''}
                 <table className="table table-bordered table-striped table-sm">
                     <thead>
                     <tr>
@@ -53,7 +54,10 @@ PassTable.propTypes = {
         groundStation: PropTypes.string.isRequired,
 
     })).isRequired,
-    inFlight: PropTypes.string.isRequired,
+    fetchState: PropTypes.shape({
+        inFlight: PropTypes.bool.isRequired,
+        error: PropTypes.string
+    }).isRequired
 };
 
 export default PassTable;
