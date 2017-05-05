@@ -4,12 +4,20 @@
   "private": true,
   "homepage": ".",
   "devDependencies": {
+    "babel-eslint": "^7.1.1",
     "enzyme": "^2.8.2",
+    "eslint": "^3.16.1",
+    "eslint-config-google": "^0.7.1",
+    "eslint-config-react-app": "^0.6.2",
+    "eslint-plugin-flowtype": "^2.21.0",
+    "eslint-plugin-import": "^2.0.1",
+    "eslint-plugin-jsx-a11y": "^4.0.0",
+    "eslint-plugin-react": "^6.4.1",
     "gulp": "^3.9.1",
     "gulp-concat": "^2.6.0",
     "gulp-sass": "^2.3.2",
-    "react-scripts": "0.9.5",
-    "react-addons-test-utils": "~15.4.2"
+    "react-addons-test-utils": "~15.4.2",
+    "react-scripts": "0.9.5"
   },
   "dependencies": {
     "chart.js": "2.5.0",
@@ -33,6 +41,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
+    "lint": "eslint src/",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
   }

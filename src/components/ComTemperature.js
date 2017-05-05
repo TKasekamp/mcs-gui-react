@@ -59,7 +59,8 @@ class ComTemperature extends Component {
             color: '#999'
         };
 
-        let euroValue, audValue;
+        let euroValue;
+        let audValue;
         if (this.state.tracker) {
             const index = timeseries.bisect(this.state.tracker);
             const trackerEvent = timeseries.at(index);
@@ -87,10 +88,10 @@ class ComTemperature extends Component {
                                     align="right"
                                     style={style}
                                     highlight={this.state.highlight}
-                                    onHighlightChange={highlight =>
+                                    onHighlightChange={(highlight) =>
                                         this.setState({highlight})}
                                     selection={this.state.selection}
-                                    onSelectionChange={selection =>
+                                    onSelectionChange={(selection) =>
                                         this.setState({selection})}
                                     categories={[
                                         {key: 'pa', label: 'PA', value: audValue},
@@ -134,10 +135,10 @@ class ComTemperature extends Component {
                                                     style={style}
                                                     interpolation="curveBasis"
                                                     highlight={this.state.highlight}
-                                                    onHighlightChange={highlight =>
+                                                    onHighlightChange={(highlight) =>
                                                         this.setState({highlight})}
                                                     selection={this.state.selection}
-                                                    onSelectionChange={selection =>
+                                                    onSelectionChange={(selection) =>
                                                         this.setState({selection})}
                                                 />
                                             </Charts>

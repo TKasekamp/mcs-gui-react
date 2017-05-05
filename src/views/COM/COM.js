@@ -8,7 +8,7 @@ class COM extends Component {
             <div>
                 <ComTemperature/>
             </div>
-        )
+        );
     }
 }
 
