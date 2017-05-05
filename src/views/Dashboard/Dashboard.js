@@ -1,14 +1,15 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
+import ComTemperature from '../../components/ComTemperature';
 
 class Dashboard extends Component {
 
-  render() {
-    return (
-      <div className="animated fadeIn">
-        Hello World
-      </div>
-    )
-  }
+    render() {
+        return (
+            <div>
+                <ComTemperature/>
+            </div>
+        )
+    }
 }
 
 export default Dashboard;

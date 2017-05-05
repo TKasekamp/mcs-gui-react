@@ -11,6 +11,8 @@
   },
   "dependencies": {
     "chart.js": "2.5.0",
+    "d3-format": "^1.2.0",
+    "d3-time-format": "^2.0.5",
     "pondjs": "^0.8.5",
     "react": "^15.5.4",
     "react-addons-css-transition-group": "15.5.2",
