@@ -1,5 +1,5 @@
 import {
-    COMMAND_SUBMITTED,
+    COMMAND_SUBMITTED, COMMAND_SUCCEEDED,
     CONNECT_REFUSED, CONNECT_REQUESTED, CONNECTED, DISCONNECT_REQUESTED,
     MESSAGE_RECEIVED
 } from '../actions/CommandActions';
@@ -26,7 +26,7 @@ const commands = (state = initialState, action) => {
             return {
                 ...state,
                 commands: state.commands.concat({
-                    id: action.payload.id,
+                    id: action.payload.localId,
                     command: action.payload.command,
                     status: IN_FLIGHT,
                     userId: action.payload.userId,
@@ -34,6 +34,21 @@ const commands = (state = initialState, action) => {
                 })
             };
 
+        case COMMAND_SUCCEEDED: {
+            const commands = state.commands.map((command) => {
+                if (command.id === action.payload.localId) {
+                    return {
+                        ...command,
+                        id: action.payload.id,
+                        status: action.payload.status
+                    };
+                } else {
+                    return command;
+                }
+            });
+
+            return {...state, commands};
+        }
 
         case CONNECT_REQUESTED:
             return {

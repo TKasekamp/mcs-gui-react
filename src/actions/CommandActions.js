@@ -34,7 +34,7 @@ export const commandSubmitted = (command) => (
         type: COMMAND_SUBMITTED,
         payload: {
             command: command,
-            id: (commandId++).toString(),
+            localId: (commandId++).toString(),
             userId: 'test-value'
         }
     }
