@@ -2,7 +2,7 @@
   "name": "mcs-gui-react",
   "version": "1.0.0",
   "private": true,
-  "homepage": ".",
+  "homepage": "https://tkasekamp.github.io/mcs-gui-react",
   "devDependencies": {
     "babel-eslint": "^7.1.1",
     "enzyme": "^2.8.2",
@@ -13,6 +13,7 @@
     "eslint-plugin-import": "^2.0.1",
     "eslint-plugin-jsx-a11y": "^4.0.0",
     "eslint-plugin-react": "^6.4.1",
+    "gh-pages": "^0.12.0",
     "gulp": "^3.9.1",
     "gulp-concat": "^2.6.0",
     "gulp-sass": "^2.3.2",
@@ -43,6 +44,8 @@
     "build": "react-scripts build",
     "lint": "eslint src/",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   }
 }

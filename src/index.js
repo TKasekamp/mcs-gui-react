@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import {browserHistory, hashHistory, Router} from 'react-router';
+import {hashHistory, Router} from 'react-router';
 import routes from './routes';
 import {Provider} from 'react-redux';
 import thunk from 'redux-thunk';

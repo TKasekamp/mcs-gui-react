@@ -19,6 +19,6 @@ export const chooseServer = () => {
 
     if (process.env.NODE_ENV === 'production') {
         SERVER_URL = HEROKU_SERVER;
-        WEBSOCKET_URL = `ws://${HEROKU_WEBSOCKET.host}/ws`;
+        WEBSOCKET_URL = `wss://${HEROKU_WEBSOCKET.host}/ws`;
     }
 };
