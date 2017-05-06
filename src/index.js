@@ -8,6 +8,7 @@ import {applyMiddleware, compose, createStore} from 'redux';
 import reducers from './reducers';
 import {syncHistoryWithStore} from 'react-router-redux';
 import serverMiddleware from './middlewares/ServerMiddleware';
+import WebSocketMiddleware from './middlewares/WebSocketMiddleware';
 
 const composeStoreEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
@@ -16,7 +17,8 @@ let store = createStore(
     composeStoreEnhancers(
         applyMiddleware(
             thunk,
-            serverMiddleware
+            serverMiddleware,
+            WebSocketMiddleware
         )
     )
 );
