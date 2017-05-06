@@ -5,8 +5,7 @@ import Aside from '../../components/Aside/';
 import Footer from '../../components/Footer/';
 
 import Breadcrumbs from 'react-breadcrumbs';
-import PropTypes from 'prop-types';
-
+/* eslint-disable */
 class Full extends Component {
     render() {
         return (
@@ -35,9 +34,4 @@ class Full extends Component {
     }
 }
 
-Full.proptypes = {
-    children: PropTypes.any,
-    routes: PropTypes.any,
-    params: PropTypes.any
-};
 export default Full;

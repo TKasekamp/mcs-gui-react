@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
-import PropTypes from 'prop-types';
 
+/* eslint-disable */
 class Simple extends Component {
     render() {
         return (
@@ -10,8 +10,4 @@ class Simple extends Component {
         );
     }
 }
-
-Simple.proptypes = {
-    children: PropTypes.node
-};
 export default Simple;
