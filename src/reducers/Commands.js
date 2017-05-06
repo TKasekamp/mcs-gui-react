@@ -21,7 +21,7 @@ const initialState = {
     message: ''
 };
 export const IN_FLIGHT = 'In Flight';
-/*export const ACCEPTED = 'created';
+/* export const ACCEPTED = 'created';
  export const FAILED = 'failed';*/
 
 const commands = (state = initialState, action) => {
@@ -74,29 +74,7 @@ const commands = (state = initialState, action) => {
             };
 
         case MESSAGE_RECEIVED:
-            // Accepts messages from our terminal and any other
-            let inList = false;
-            const commands = state.commands.map((command) => {
-                if (command.id === action.payload.id) {
-                    inList = true;
-                    return {
-                        ...command,
-                        result: action.payload.result,
-                        status: action.payload.status
-                    };
-                } else {
-                    return command;
-                }
-            });
-            if (!inList) {
-                return {
-                    ...state, commands: state.commands.concat(
-                        action.payload
-                    )
-                }
-            }
-
-            return {...state, commands};
+            return {...state, commands: handleMessageReceived(state.commands, action)};
 
         case DISCONNECT_REQUESTED:
             return {
@@ -110,4 +88,24 @@ const commands = (state = initialState, action) => {
     }
 };
 
+const handleMessageReceived = (commands, action) => {
+    // Accepts messages from our terminal and any other
+    let inList = false;
+    commands = commands.map((command) => {
+        if (command.id === action.payload.id) {
+            inList = true;
+            return {
+                ...command,
+                result: action.payload.result,
+                status: action.payload.status
+            };
+        } else {
+            return command;
+        }
+    });
+    if (!inList) {
+        commands = commands.concat(action.payload);
+    }
+    return commands;
+};
 export default commands;

@@ -9,11 +9,12 @@ import TerminalCard from '../../components/Terminal/TerminalCard';
 class Dashboard extends Component {
     componentDidMount() {
         // Get only if empty
-        if (this.props.passes.length === 0 && process.env.NODE_ENV === 'development') {
+        // TODO move this check to somewhere else
+        if (this.props.passes.length === 0 && process.env.NODE_ENV === 'production') {
             this.props.onRequestPasses();
         }
         if (!this.props.connected) {
-            this.props.onConnect()
+            this.props.onConnect();
         }
     }
 
@@ -50,6 +51,7 @@ Dashboard.propTypes = {
         result: PropTypes.string.isRequired
     })).isRequired,
     onSubmit: PropTypes.func.isRequired,
+    onConnect: PropTypes.func.isRequired,
     onRequestPasses: PropTypes.func.isRequired,
     fetchState: PropTypes.shape({
         inFlight: PropTypes.bool.isRequired,

@@ -20,7 +20,6 @@ const TerminalCard = (props) => {
             </div>
         </div>
     );
-
 };
 TerminalCard.propTypes = {
     onSubmit: PropTypes.func.isRequired,

@@ -13,10 +13,9 @@ const HEROKU_WEBSOCKET = {
 };
 const HEROKU_SERVER = 'https://secure-falls-24516.herokuapp.com';
 export let SERVER_URL = DEV_SERVER;
-export let WEBSOCKET_URL = `ws://${DEV_WEBSOCKET.host}:${DEV_WEBSOCKET.port}/ws`
+export let WEBSOCKET_URL = `ws://${DEV_WEBSOCKET.host}:${DEV_WEBSOCKET.port}/ws`;
 
 export const chooseServer = () => {
-
     if (process.env.NODE_ENV === 'production') {
         SERVER_URL = HEROKU_SERVER;
         WEBSOCKET_URL = `wss://${HEROKU_WEBSOCKET.host}/ws`;

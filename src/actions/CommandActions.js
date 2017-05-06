@@ -3,7 +3,7 @@ import {createPayloadForwardingAction} from './index';
 let commandId = 0;
 // CONNECT
 export const CONNECT_REQUESTED = 'CONNECT_REQUESTED';
-export const connectRequested =  createPayloadForwardingAction(CONNECT_REQUESTED);
+export const connectRequested = createPayloadForwardingAction(CONNECT_REQUESTED);
 
 export const CONNECT_REFUSED = 'CONNECT_REFUSED';
 export const connectRefused = createPayloadForwardingAction(CONNECT_REFUSED);
