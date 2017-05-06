@@ -1,18 +1,18 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import {hashHistory, Router} from 'react-router';
+import {browserHistory, Router} from 'react-router';
 import routes from './routes';
 import {Provider} from 'react-redux';
 import thunk from 'redux-thunk';
 import {applyMiddleware, compose, createStore} from 'redux';
-import reducer from './reducers';
-
+import reducers from './reducers';
+import {syncHistoryWithStore} from 'react-router-redux';
 import serverMiddleware from './middlewares/ServerMiddleware';
 
 const composeStoreEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 let store = createStore(
-    reducer,
+    reducers,
     composeStoreEnhancers(
         applyMiddleware(
             thunk,
@@ -21,9 +21,12 @@ let store = createStore(
     )
 );
 
+// Create an enhanced history that syncs navigation events with the store
+const history = syncHistoryWithStore(browserHistory, store);
+
 ReactDOM.render(
     <Provider store={store}>
-        <Router routes={routes} history={hashHistory}/>
+        <Router routes={routes} history={history}/>
     </Provider>,
     document.getElementById('root')
 );
