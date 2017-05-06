@@ -9,8 +9,8 @@ import TerminalCard from '../../components/Terminal/TerminalCard';
 class Dashboard extends Component {
     componentDidMount() {
         // Get only if empty
-        if (this.props.passes.length === 0) {
-            //this.props.onRequestPasses();
+        if (this.props.passes.length === 0 && process.env.NODE_ENV === 'development') {
+            this.props.onRequestPasses();
         }
         if (!this.props.connected) {
             this.props.onConnect()

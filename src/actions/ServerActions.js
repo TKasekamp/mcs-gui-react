@@ -1,13 +1,11 @@
 import jsonAjax from '../JSONAjaxRequest';
 import {passesFailed, passesRetrieved} from './index';
 import {commandFailed, commandSucceeded} from './CommandActions';
-
-const SERVER_ADDRESS = 'http://private-036b14-guiapi.apiary-mock.com';
-const DEV_SERVER = 'http://localhost:8080';
+import {APIARY_ADDRESS, SERVER_URL} from '../constants';
 
 export const getPasses = () => (dispatch) => {
     jsonAjax(
-        SERVER_ADDRESS + '/ops/passes',
+        APIARY_ADDRESS + '/ops/passes',
         'GET',
         null,
         (passes) => dispatch(passesRetrieved(passes)),
@@ -17,7 +15,7 @@ export const getPasses = () => (dispatch) => {
 
 export const submitCommand = ({localId, userId, command}) => (dispatch) => {
     jsonAjax(
-        DEV_SERVER + '/commands',
+        SERVER_URL + '/commands',
         'POST',
         {command, userId},
         ({id, status}) => dispatch(commandSucceeded({localId, id, status})),

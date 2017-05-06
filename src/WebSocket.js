@@ -1,13 +1,10 @@
-const websocketConf = {
-    port: 8080,
-    host: 'localhost'
-};
+import {WEBSOCKET_URL} from './constants';
 
 export const connect = ({onOpen, onClose, onMessage, parameters = {}}) => {
     // `ws` signifies the websocket protocol
     // `wss` would be secure websocket protocol (like https)
     const websocketConnection = new WebSocket(
-        `ws://${websocketConf.host}:${websocketConf.port}/ws`
+        WEBSOCKET_URL
     );
 
     websocketConnection.onopen = () => onOpen();
