@@ -3,24 +3,29 @@ import PassTable from '../../components/Passes/PassTable';
 import {connect} from 'react-redux';
 import {passesRequested} from '../../actions/index';
 import PropTypes from 'prop-types';
+import {commandSubmitted, connectRequested} from '../../actions/CommandActions';
+import TerminalForm from '../../components/Terminal/TerminalForm';
 
 class Dashboard extends Component {
     componentDidMount() {
         // Get only if empty
         if (this.props.passes.length === 0) {
-            this.props.onRequestPasses();
+            //this.props.onRequestPasses();
         }
     }
 
     render() {
         return (
             <div>
-                Other stuff in menu.
                 <div className="row">
+                    <div className="col-lg-12">
+                        <TerminalForm onSubmit={this.props.onSubmit}/>
+                    </div>
                     <div className="col-lg-12">
                         <PassTable passes={this.props.passes} fetchState={this.props.fetchState}/>
                     </div>
                 </div>
+
             </div>
         );
     }
@@ -48,7 +53,9 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-    onRequestPasses: () => dispatch(passesRequested())
+    onRequestPasses: () => dispatch(passesRequested()),
+    onConnect: ({command}) => dispatch(connectRequested({command})),
+    onSubmit: (command) => dispatch(commandSubmitted(command)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Dashboard);

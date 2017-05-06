@@ -1,5 +1,6 @@
 import {createPayloadForwardingAction} from './index';
 
+let commandId = 0;
 // CONNECT
 export const CONNECT_REQUESTED = 'CONNECT_REQUESTED';
 export const connectRequested = (obj) => (
@@ -25,3 +26,22 @@ export const disconnectRequested = createPayloadForwardingAction(DISCONNECT_REQU
 // MESSAGE
 export const MESSAGE_RECEIVED = 'MESSAGE_RECEIVED';
 export const messageReceived = createPayloadForwardingAction(MESSAGE_RECEIVED);
+
+// COMMAND POST
+export const COMMAND_SUBMITTED = 'COMMAND_SUBMITTED';
+export const commandSubmitted = (command) => (
+    {
+        type: COMMAND_SUBMITTED,
+        payload: {
+            command: command,
+            id: commandId++,
+            userId: 'test-value'
+        }
+    }
+);
+
+export const COMMAND_SUCCEEDED = 'COMMAND_SUCCEEDED';
+export const commandSucceeded = createPayloadForwardingAction(COMMAND_SUCCEEDED);
+
+export const COMMAND_FAILED = 'COMMAND_FAILED';
+export const commandFailed = createPayloadForwardingAction(COMMAND_FAILED);

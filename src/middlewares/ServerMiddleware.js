@@ -1,8 +1,10 @@
 import {PASSES_REQUESTED} from '../actions/index';
-import {getPasses} from '../actions/ServerActions';
+import {getPasses, submitCommand} from '../actions/ServerActions';
+import {COMMAND_SUBMITTED} from '../actions/CommandActions';
 
 const ACTION_TYPE_TO_SERVER_ACTION = {
-    [PASSES_REQUESTED]: getPasses
+    [PASSES_REQUESTED]: getPasses,
+    [COMMAND_SUBMITTED]: submitCommand
 };
 
 const serverMiddleware = (store) => (next) => (action) => {
