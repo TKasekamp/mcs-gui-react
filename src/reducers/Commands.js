@@ -1,6 +1,10 @@
 import {
-    COMMAND_SUBMITTED, COMMAND_SUCCEEDED,
-    CONNECT_REFUSED, CONNECT_REQUESTED, CONNECTED, DISCONNECT_REQUESTED,
+    COMMAND_SUBMITTED,
+    COMMAND_SUCCEEDED,
+    CONNECT_REFUSED,
+    CONNECT_REQUESTED,
+    CONNECTED,
+    DISCONNECT_REQUESTED,
     MESSAGE_RECEIVED
 } from '../actions/CommandActions';
 
@@ -18,7 +22,7 @@ const initialState = {
 };
 export const IN_FLIGHT = 'In Flight';
 /*export const ACCEPTED = 'created';
-export const FAILED = 'failed';*/
+ export const FAILED = 'failed';*/
 
 const commands = (state = initialState, action) => {
     switch (action.type) {
@@ -59,14 +63,40 @@ const commands = (state = initialState, action) => {
         case CONNECTED:
             return {
                 ...state,
+                connected: true,
                 message: ''
             };
         case CONNECT_REFUSED:
-            // Something here
-            return state;
+            return {
+                ...state,
+                connected: false,
+                message: 'Connection refused! Those bastards!'
+            };
 
         case MESSAGE_RECEIVED:
-            return {...state, commands: state.commands.concat(action.payload)};
+            // Accepts messages from our terminal and any other
+            let inList = false;
+            const commands = state.commands.map((command) => {
+                if (command.id === action.payload.id) {
+                    inList = true;
+                    return {
+                        ...command,
+                        result: action.payload.result,
+                        status: action.payload.status
+                    };
+                } else {
+                    return command;
+                }
+            });
+            if (!inList) {
+                return {
+                    ...state, commands: state.commands.concat(
+                        action.payload
+                    )
+                }
+            }
+
+            return {...state, commands};
 
         case DISCONNECT_REQUESTED:
             return {

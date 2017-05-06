@@ -12,6 +12,9 @@ class Dashboard extends Component {
         if (this.props.passes.length === 0) {
             //this.props.onRequestPasses();
         }
+        if (!this.props.connected) {
+            this.props.onConnect()
+        }
     }
 
     render() {
@@ -51,18 +54,20 @@ Dashboard.propTypes = {
     fetchState: PropTypes.shape({
         inFlight: PropTypes.bool.isRequired,
         error: PropTypes.string
-    }).isRequired
+    }).isRequired,
+    connected: PropTypes.bool.isRequired
 };
 
 const mapStateToProps = (state) => ({
     passes: state.passes.passes,
     fetchState: state.passes.fetchState,
     commands: state.commands.commands,
+    connected: state.commands.connected
 });
 
 const mapDispatchToProps = (dispatch) => ({
     onRequestPasses: () => dispatch(passesRequested()),
-    onConnect: ({command}) => dispatch(connectRequested({command})),
+    onConnect: () => dispatch(connectRequested()),
     onSubmit: (command) => dispatch(commandSubmitted(command)),
 });
 
