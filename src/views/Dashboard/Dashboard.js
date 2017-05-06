@@ -4,7 +4,15 @@ import {connect} from 'react-redux';
 import {passesRequested} from '../../actions/index';
 import PropTypes from 'prop-types';
 import {commandSubmitted, connectRequested} from '../../actions/CommandActions';
-import TerminalForm from '../../components/Terminal/TerminalForm';
+import TerminalCard from '../../components/Terminal/TerminalCard';
+
+const commands = [{
+    id: 'asdasfafafdfsdasfafafa',
+    command: 'blow up',
+    userId: 'sdfdfsfgggrvdfvervr',
+    status: 'completed',
+    result: 'it blew up'
+}];
 
 class Dashboard extends Component {
     componentDidMount() {
@@ -19,7 +27,7 @@ class Dashboard extends Component {
             <div>
                 <div className="row">
                     <div className="col-lg-12">
-                        <TerminalForm onSubmit={this.props.onSubmit}/>
+                        <TerminalCard commands={commands} onSubmit={this.props.onSubmit}/>
                     </div>
                     <div className="col-lg-12">
                         <PassTable passes={this.props.passes} fetchState={this.props.fetchState}/>

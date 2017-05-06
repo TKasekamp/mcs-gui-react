@@ -27,21 +27,15 @@ class TerminalForm extends Component {
 
     render() {
         return (
-            <div className="card">
-                <div className="card-header">
-                    <i className="fa fa-align-justify"/> Command terminal
-                </div>
-                <div className="card-block">
-                    <input
-                        id="word-input"
-                        type="text"
-                        placeholder="Enter stuff"
-                        value={this.state.command}
-                        onChange={this.handleGuessChange.bind(this)}
-                        onKeyPress={this.handleKeyPress.bind(this)}
-                    />
-                </div>
-            </div>
+            <div class="form-group"><input
+                id="word-input"
+                className="form-control"
+                type="text"
+                placeholder="Enter stuff"
+                value={this.state.command}
+                onChange={this.handleGuessChange.bind(this)}
+                onKeyPress={this.handleKeyPress.bind(this)}
+            /></div>
         );
     }
 }
