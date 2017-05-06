@@ -2,7 +2,7 @@
  * Created by Tõnis Kasekamp on 06.05.2017.
  */
 
-export const APIARY_ADDRESS = 'http://private-036b14-guiapi.apiary-mock.com';
+export const APIARY_ADDRESS = 'https://private-036b14-guiapi.apiary-mock.com';
 const DEV_SERVER = 'http://localhost:8080';
 const DEV_WEBSOCKET = {
     port: 8080,
