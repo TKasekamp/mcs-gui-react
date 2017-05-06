@@ -7,8 +7,10 @@ const CommandItemList = (props) => {
             <CommandItem command={command} key={command.id}/>
         );
     });
+    // TODO make class
+    const st = {display: 'flex', flexDirection: 'column-reverse'};
     return (
-        <ul className="icons-list">
+        <ul className="icons-list" style={st}>
             {resultElements}
         </ul>
     );

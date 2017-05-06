@@ -27,7 +27,7 @@ class TerminalForm extends Component {
 
     render() {
         return (
-            <div class="form-group"><input
+            <div className="form-group"><input
                 id="word-input"
                 className="form-control"
                 type="text"

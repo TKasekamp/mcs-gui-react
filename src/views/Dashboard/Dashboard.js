@@ -6,14 +6,6 @@ import PropTypes from 'prop-types';
 import {commandSubmitted, connectRequested} from '../../actions/CommandActions';
 import TerminalCard from '../../components/Terminal/TerminalCard';
 
-const commands = [{
-    id: 'asdasfafafdfsdasfafafa',
-    command: 'blow up',
-    userId: 'sdfdfsfgggrvdfvervr',
-    status: 'completed',
-    result: 'it blew up'
-}];
-
 class Dashboard extends Component {
     componentDidMount() {
         // Get only if empty
@@ -27,7 +19,7 @@ class Dashboard extends Component {
             <div>
                 <div className="row">
                     <div className="col-lg-12">
-                        <TerminalCard commands={commands} onSubmit={this.props.onSubmit}/>
+                        <TerminalCard commands={this.props.commands} onSubmit={this.props.onSubmit}/>
                     </div>
                     <div className="col-lg-12">
                         <PassTable passes={this.props.passes} fetchState={this.props.fetchState}/>
@@ -46,8 +38,15 @@ Dashboard.propTypes = {
         los: PropTypes.number.isRequired,
         maxElevation: PropTypes.number.isRequired,
         groundStation: PropTypes.string.isRequired,
-
     })).isRequired,
+    commands: PropTypes.arrayOf(PropTypes.shape({
+        id: PropTypes.string.isRequired,
+        command: PropTypes.string.isRequired,
+        userId: PropTypes.string.isRequired,
+        status: PropTypes.string.isRequired,
+        result: PropTypes.string.isRequired
+    })).isRequired,
+    onSubmit: PropTypes.func.isRequired,
     onRequestPasses: PropTypes.func.isRequired,
     fetchState: PropTypes.shape({
         inFlight: PropTypes.bool.isRequired,
@@ -57,7 +56,8 @@ Dashboard.propTypes = {
 
 const mapStateToProps = (state) => ({
     passes: state.passes.passes,
-    fetchState: state.passes.fetchState
+    fetchState: state.passes.fetchState,
+    commands: state.commands.commands,
 });
 
 const mapDispatchToProps = (dispatch) => ({
