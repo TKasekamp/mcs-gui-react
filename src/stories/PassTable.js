@@ -35,6 +35,6 @@ const passes = [
 
 storiesOf('PassTable', module)
     .add('renders', () => {
-            return (<PassTable fetchState={{inFlight: false}} passes={passes}/>)
+            return (<PassTable fetchState={{inFlight: false}} passes={passes}/>);
         }
     );
