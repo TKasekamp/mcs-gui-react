@@ -4,6 +4,7 @@
   "private": true,
   "homepage": "https://tkasekamp.github.io/mcs-gui-react",
   "devDependencies": {
+    "@kadira/storybook": "^2.21.0",
     "babel-eslint": "^7.1.1",
     "enzyme": "^2.8.2",
     "eslint": "^3.16.1",
@@ -47,6 +48,8 @@
     "test-coverage": "npm run test -- --coverage",
     "eject": "react-scripts eject",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "deploy": "gh-pages -d build",
+    "storybook": "start-storybook -p 9009 -s public",
+    "build-storybook": "build-storybook -s public"
   }
 }
