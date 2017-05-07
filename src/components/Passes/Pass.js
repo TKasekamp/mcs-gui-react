@@ -1,12 +1,20 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import {calculateDuration, myDayFormat, myTimeFormat} from '../../logic/Time';
 
 const Pass = (props) => {
+    const passDate = myDayFormat(props.aos);
+    const aosTime = myTimeFormat(props.aos);
+    const losTime = myTimeFormat(props.los);
+    const duration = myTimeFormat(calculateDuration(props.aos, props.los));
+
     return (
         <tr>
-            <td>{props.aos}</td>
-            <td>{props.los}</td>
-            <td>{props.maxElevation}</td>
+            <td>{passDate}</td>
+            <td>{aosTime}</td>
+            <td>{losTime}</td>
+            <td>{duration}</td>
+            <td>{props.maxElevation}°</td>
             <td>{props.groundStation}</td>
         </tr>
     );

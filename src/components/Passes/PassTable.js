@@ -18,8 +18,10 @@ const PassTable = (props) => {
                 <table className="table table-bordered table-striped table-sm">
                     <thead>
                     <tr>
-                        <th>AOS</th>
-                        <th>LOS</th>
+                        <th>Pass date</th>
+                        <th>AOS time</th>
+                        <th>LOS time</th>
+                        <th>Pass duration</th>
                         <th>Max elevation</th>
                         <th>Ground station</th>
                     </tr>
