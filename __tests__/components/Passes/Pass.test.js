@@ -16,7 +16,7 @@ describe('Pass', () => {
         />)).toBeDefined();
     });
 
-    it('has 6 <td>', () => {
+    it('has 7 <td>', () => {
         const pass = {
             'id': 'random-id-0',
             'aos': 1494001057,
@@ -26,6 +26,6 @@ describe('Pass', () => {
         };
         expect(shallow(<Pass key={pass.id} groundStation={pass.groundStation} maxElevation={pass.maxElevation}
                              id={pass.id} aos={pass.aos} los={pass.los}
-        />).find('td').length).toBe(6);
+        />).find('td').length).toBe(7);
     });
 });

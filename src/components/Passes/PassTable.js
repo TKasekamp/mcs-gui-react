@@ -22,6 +22,7 @@ const PassTable = (props) => {
                         <th>AOS time</th>
                         <th>LOS time</th>
                         <th>Pass duration</th>
+                        <th>Pass status</th>
                         <th>Max elevation</th>
                         <th>Ground station</th>
                     </tr>

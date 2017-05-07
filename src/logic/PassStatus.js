@@ -11,7 +11,6 @@ const OVER = 'OVER';
 export const calculatePassStatus = (aos, los) => {
     const now = new Date();
     const utcDate = new Date(now.getTime() + now.getTimezoneOffset() * 60000).getTime();
-
     if (utcDate < aos) {
         let time = calculateDuration(utcDate, aos);
         return {value: IN_FUTURE, time: time};

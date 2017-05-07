@@ -19,15 +19,15 @@ const passes = [
     },
     {
         'id': 'random-id-2',
-        'aos': 1494027657000,
-        'los': 1494059057000,
+        'aos': new Date().getTime() - 13022000,
+        'los': new Date().getTime() + 10232000,
         'maxElevation': 39.5,
         'groundStation': 'Tartu'
     },
     {
         'id': 'random-id-3',
-        'aos': 1494079857000,
-        'los': 1494109157000,
+        'aos': 1498079857000,
+        'los': 1498109157000,
         'maxElevation': 41.5,
         'groundStation': 'Tartu'
     }
