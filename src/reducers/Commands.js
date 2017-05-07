@@ -24,6 +24,27 @@ export const IN_FLIGHT = 'In Flight';
 /* export const ACCEPTED = 'created';
  export const FAILED = 'failed';*/
 
+const handleMessageReceived = (commands, action) => {
+    // Accepts messages from our terminal and any other
+    let inList = false;
+    commands = commands.map((command) => {
+        if (command.id === action.payload.id) {
+            inList = true;
+            return {
+                ...command,
+                result: action.payload.result,
+                status: action.payload.status
+            };
+        } else {
+            return command;
+        }
+    });
+    if (!inList) {
+        commands = commands.concat(action.payload);
+    }
+    return commands;
+};
+
 const commands = (state = initialState, action) => {
     switch (action.type) {
         case COMMAND_SUBMITTED:
@@ -88,24 +109,4 @@ const commands = (state = initialState, action) => {
     }
 };
 
-const handleMessageReceived = (commands, action) => {
-    // Accepts messages from our terminal and any other
-    let inList = false;
-    commands = commands.map((command) => {
-        if (command.id === action.payload.id) {
-            inList = true;
-            return {
-                ...command,
-                result: action.payload.result,
-                status: action.payload.status
-            };
-        } else {
-            return command;
-        }
-    });
-    if (!inList) {
-        commands = commands.concat(action.payload);
-    }
-    return commands;
-};
 export default commands;
