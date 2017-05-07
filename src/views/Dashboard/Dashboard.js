@@ -5,14 +5,14 @@ import {passesRequested} from '../../actions/index';
 import PropTypes from 'prop-types';
 import {commandSubmitted, connectRequested} from '../../actions/CommandActions';
 import TerminalCard from '../../components/Terminal/TerminalCard';
-
+import {passes} from '../../stories/PassTable';
 class Dashboard extends Component {
     componentDidMount() {
         // Get only if empty
         // TODO move this check to somewhere else
-        if (this.props.passes.length === 0 && process.env.NODE_ENV === 'production') {
-            this.props.onRequestPasses();
-        }
+        // if (this.props.passes.length === 0 && process.env.NODE_ENV === 'production') {
+        //     this.props.onRequestPasses();
+        // }
         if (!this.props.connected) {
             this.props.onConnect();
         }
@@ -61,7 +61,7 @@ Dashboard.propTypes = {
 };
 
 const mapStateToProps = (state) => ({
-    passes: state.passes.passes,
+    passes: passes,
     fetchState: state.passes.fetchState,
     commands: state.commands.commands,
     connected: state.commands.connected
