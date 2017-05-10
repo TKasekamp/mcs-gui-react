@@ -35,7 +35,6 @@ function passEventStyleFunc(event, state) {
                 fill: color
             };
         default:
-        //pass
     }
 }
 
@@ -56,8 +55,7 @@ class PassEventChart extends Component {
             series: series,
             tracker: null,
             timerange: series.timerange()
-        }
-
+        };
     }
 
     handleTrackerChanged(tracker) {
@@ -66,6 +64,10 @@ class PassEventChart extends Component {
 
     handleTimeRangeChange(timerange) {
         this.setState({timerange});
+    }
+
+    getEventText(e) {
+        return e.get('groundStation') + ' ' + e.get('passStatus.value');
     }
 
     render() {
@@ -92,7 +94,7 @@ class PassEventChart extends Component {
                                             series={this.state.series}
                                             size={45}
                                             style={passEventStyleFunc}
-                                            label={e => e.get('groundStation') + ' ' + e.get('passStatus.value')}
+                                            label={this.getEventText}
                                         />
                                     </Charts>
                                 </ChartRow>

@@ -9,7 +9,7 @@ export const passes = [
         los: new Date().getTime() - 75022000,
         maxElevation: 41.5,
         groundStation: 'Tartu',
-        passStatus : {value: 'OVER', time: 0}
+        passStatus: {value: 'OVER', time: 0}
     },
     {
         id: 'random-id-1',
@@ -17,7 +17,7 @@ export const passes = [
         los: new Date().getTime() - 35022000,
         maxElevation: 23.5,
         groundStation: 'Tartu',
-        passStatus : {value: 'OVER', time: 0}
+        passStatus: {value: 'OVER', time: 0}
     },
     {
         id: 'random-id-2',
@@ -25,7 +25,7 @@ export const passes = [
         los: new Date().getTime() + 5232000,
         maxElevation: 39.5,
         groundStation: 'Tartu',
-        passStatus : {value: 'IN_RANGE', time: 0}
+        passStatus: {value: 'IN_RANGE', time: 0}
     },
     {
         id: 'random-id-3',
@@ -33,7 +33,7 @@ export const passes = [
         los: new Date().getTime() + 14232000,
         maxElevation: 41.5,
         groundStation: 'Tartu',
-        passStatus : {value: 'IN_FUTURE', time: 0}
+        passStatus: {value: 'IN_FUTURE', time: 0}
     }
 ];
 
