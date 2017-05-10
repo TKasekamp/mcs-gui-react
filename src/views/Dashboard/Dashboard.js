@@ -6,6 +6,7 @@ import PropTypes from 'prop-types';
 import {commandSubmitted, connectRequested} from '../../actions/CommandActions';
 import TerminalCard from '../../components/Terminal/TerminalCard';
 import {passes} from '../../stories/PassTable';
+import PassEventChart from '../../components/Passes/PassEventChart';
 class Dashboard extends Component {
     componentDidMount() {
         // Get only if empty
@@ -27,6 +28,9 @@ class Dashboard extends Component {
                     </div>
                     <div className="col-lg-12">
                         <PassTable passes={this.props.passes} fetchState={this.props.fetchState}/>
+                    </div>
+                    <div className="col-lg-12">
+                        <PassEventChart passes={this.props.passes} fetchState={this.props.fetchState}/>
                     </div>
                 </div>
 
