@@ -38,7 +38,8 @@
     "react-timeseries-charts": "^0.12.4",
     "reactstrap": "4.5.0",
     "redux": "^3.6.0",
-    "redux-thunk": "^2.2.0"
+    "redux-thunk": "^2.2.0",
+    "tle": "^1.2.2"
   },
   "scripts": {
     "start": "react-scripts start",
