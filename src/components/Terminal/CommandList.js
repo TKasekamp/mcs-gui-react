@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import CommandItem from './CommandItem';
-const CommandItemList = (props) => {
+const CommandList = (props) => {
     const resultElements = props.commands.map((command) => {
         return (
             <CommandItem command={command} key={command.id}/>
@@ -16,7 +16,7 @@ const CommandItemList = (props) => {
     );
 };
 
-CommandItemList.propTypes = {
+CommandList.propTypes = {
     commands: PropTypes.arrayOf(PropTypes.shape({
         id: PropTypes.string.isRequired,
         command: PropTypes.string.isRequired,
@@ -26,4 +26,4 @@ CommandItemList.propTypes = {
     })).isRequired
 };
 
-export default CommandItemList;
+export default CommandList;

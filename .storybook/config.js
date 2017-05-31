@@ -7,6 +7,8 @@ import '../public/css/font-awesome.min.css';
 function loadStories() {
     require('../src/stories/PassTable');
     require('../src/stories/PassStatus');
+    require('../src/stories/CommandItem');
+    require('../src/stories/TerminalCard');
 }
 
 configure(loadStories, module);

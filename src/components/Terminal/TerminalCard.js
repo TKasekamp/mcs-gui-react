@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import TerminalForm from './TerminalForm';
-import CommandItemList from './CommandItemList';
+import CommandList from './CommandList';
 
 const TerminalCard = (props) => {
     return (
@@ -11,11 +11,11 @@ const TerminalCard = (props) => {
             </div>
             <div className="card-block">
                 <div className="row">
-                    <div className="col-sm-6">
-                        <TerminalForm onSubmit={props.onSubmit}/></div>
-                    <div className="col-sm-6">
-                        <CommandItemList commands={props.commands}/>
+                    <div className="col-sm-12">
+                        <CommandList commands={props.commands}/>
                     </div>
+                    <div className="col-sm-12">
+                        <TerminalForm onSubmit={props.onSubmit}/></div>
                 </div>
             </div>
         </div>
