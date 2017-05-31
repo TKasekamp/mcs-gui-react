@@ -11,13 +11,7 @@ import {
 const initialState = {
     connected: false,
     userId: '',
-    commands: [{
-        id: 'asdasfafafdfsdasfafafa',
-        command: 'blow up',
-        userId: 'sdfdfsfgggrvdfvervr',
-        status: 'completed',
-        result: 'it blew up'
-    }],
+    commands: [],
     message: ''
 };
 export const IN_FLIGHT = 'In Flight';

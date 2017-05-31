@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import CommandHeader from './fragments/CommandHeader';
 import CommandResponse from './fragments/CommandResponse';
+import CommandData from './fragments/CommandData';
 
 const CommandItem = (props) => {
     return <div>
@@ -9,6 +10,12 @@ const CommandItem = (props) => {
                        commandString={props.command.commandString}
                        responseTime={props.command.responseTime}/>
         <CommandResponse responseString={props.command.responseString} responseTime={props.command.responseTime}/>
+        <div className="row">
+            <CommandData userId={props.command.userId} id={props.command.id}/>
+            <CommandData userId={props.command.userId} id={props.command.id}/>
+            <CommandData userId={props.command.userId} id={props.command.id}/>
+            <CommandData userId={props.command.userId} id={props.command.id}/>
+        </div>
     </div>
 };
 CommandItem.propTypes = {

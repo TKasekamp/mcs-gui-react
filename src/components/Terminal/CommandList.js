@@ -8,9 +8,9 @@ const CommandList = (props) => {
         );
     });
     return (
-        <ul className="icons-list">
+        <div className="icons-list" >
             {resultElements}
-        </ul>
+        </div>
     );
 };
 
