@@ -22,13 +22,19 @@ const CommandData = (props) => {
                 {props.userId}
             </div>
         </div>
+        <div className="row">
+            <label className="col-4 text-uppercase small text-muted">Priority</label>
+            <div className="col-8 small" style={{padding: 'initial'}}>
+                {props.priority}
+            </div>
+        </div>
     </div>
 };
 
 CommandData.propTypes = {
     id: PropTypes.string.isRequired,
     userId: PropTypes.string.isRequired,
-
+    priority: PropTypes.string.isRequired
 };
 
 export default CommandData;

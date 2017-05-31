@@ -10,7 +10,10 @@ const commandsWaiting = [
         submitTime: 1496240617546,
         status: 'RESPONSE_RECEIVED',
         responseTime: 1496240617546,
-        responseString: 'A random value'
+        responseString: 'A random value',
+        priority: 'HIGH',
+        obcsSchedule: 'NOW',
+        mcsSchedule: 'NOW'
 
     },
     {
@@ -19,7 +22,10 @@ const commandsWaiting = [
         commandString: 'OBCS.ping()',
         submitTime: 1496240617546,
         status: 'WAITING',
-        responseString: ''
+        responseString: '',
+        priority: 'MEDIUM',
+        obcsSchedule: 'NOW',
+        mcsSchedule: 'NOW'
     }
 ];
 

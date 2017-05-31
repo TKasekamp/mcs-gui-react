@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import CommandHeader from './fragments/CommandHeader';
 import CommandResponse from './fragments/CommandResponse';
 import CommandData from './fragments/CommandData';
+import CommandSchedule from './fragments/CommandSchedule';
 
 const CommandItem = (props) => {
     return <div>
@@ -11,10 +12,10 @@ const CommandItem = (props) => {
                        responseTime={props.command.responseTime}/>
         <CommandResponse responseString={props.command.responseString} responseTime={props.command.responseTime}/>
         <div className="row">
-            <CommandData userId={props.command.userId} id={props.command.id}/>
-            <CommandData userId={props.command.userId} id={props.command.id}/>
-            <CommandData userId={props.command.userId} id={props.command.id}/>
-            <CommandData userId={props.command.userId} id={props.command.id}/>
+            <CommandData userId={props.command.userId} id={props.command.id} priority={props.command.priority}/>
+            <CommandSchedule obcsSchedule={props.command.obcsSchedule} mcsSchedule={props.command.mcsSchedule}/>
+            <CommandData userId={props.command.userId} id={props.command.id} priority={props.command.priority}/>
+            <CommandData userId={props.command.userId} id={props.command.id} priority={props.command.priority}/>
         </div>
     </div>
 };
@@ -26,7 +27,10 @@ CommandItem.propTypes = {
         responseTime: PropTypes.number.isRequired,
         userId: PropTypes.string.isRequired,
         status: PropTypes.string.isRequired,
-        responseString: PropTypes.string
+        responseString: PropTypes.string,
+        priority: PropTypes.string.isRequired,
+        obcsSchedule: PropTypes.string.isRequired,
+        mcsSchedule: PropTypes.string.isRequired,
     }).isRequired
 };
 
