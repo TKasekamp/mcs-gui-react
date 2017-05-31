@@ -25,11 +25,12 @@ class Sidebar extends Component {
                     <ul className="nav">
                         <li className="nav-item">
                             <Link to={'/dashboard'} className="nav-link" activeClassName="active"><i
-                                className="icon-speedometer"></i> Dashboard <span
-                                className="badge badge-info">NEW</span></Link>
+                                className="icon-speedometer"></i> Dashboard </Link>
                             <Link to={'/com'} className="nav-link" activeClassName="active"><i
-                                className="icon-speedometer"></i> COM subsystem </Link>
-
+                                className="icon-graph"></i> COM subsystem </Link>
+                            <Link to={'/terminal'} className="nav-link" activeClassName="active"><i
+                                className="icon-direction"></i> Terminal <span
+                                className="badge badge-info">NEW</span></Link>
                         </li>
                     </ul>
                 </nav>
