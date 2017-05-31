@@ -1,25 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import CommandHeader from './fragments/CommandHeader';
+import CommandResponse from './fragments/CommandResponse';
 
 const CommandItem = (props) => {
-    // return (
-    //     <li>
-    //         <div className="desc">
-    //             <div className="title">{props.command.result}</div>
-    //             <small>{props.command.command}</small>
-    //         </div>
-    //         <div className="value">
-    //             <div className="small text-muted">Status</div>
-    //             <strong>{props.command.status}</strong>
-    //         </div>
-    //     </li>
-    // );
-
     return <div>
         <CommandHeader submitTime={props.command.submitTime} status={props.command.status}
                        commandString={props.command.commandString}
                        responseTime={props.command.responseTime}/>
+        <CommandResponse responseString={props.command.responseString} responseTime={props.command.responseTime}/>
     </div>
 };
 CommandItem.propTypes = {
