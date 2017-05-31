@@ -4,11 +4,9 @@ import {connect} from 'react-redux';
 import {passesRequested} from '../../actions/index';
 import PropTypes from 'prop-types';
 import {commandSubmitted, connectRequested} from '../../actions/CommandActions';
-import TerminalCard from '../../components/Terminal/TerminalCard';
 import {passes} from '../../stories/PassTable';
 import PassEventChart from '../../components/Passes/PassEventChart';
 import TLECard from '../../components/TLE/TLECard';
-
 
 
 class Dashboard extends Component {
@@ -18,18 +16,12 @@ class Dashboard extends Component {
         // if (this.props.passes.length === 0 && process.env.NODE_ENV === 'production') {
         //     this.props.onRequestPasses();
         // }
-        if (!this.props.connected) {
-            this.props.onConnect();
-        }
     }
 
     render() {
         return (
             <div>
                 <div className="row">
-                    <div className="col-lg-12">
-                        <TerminalCard commands={this.props.commands} onSubmit={this.props.onSubmit}/>
-                    </div>
                     <div className="col-lg-12">
                         <PassTable passes={this.props.passes} fetchState={this.props.fetchState}/>
                     </div>
