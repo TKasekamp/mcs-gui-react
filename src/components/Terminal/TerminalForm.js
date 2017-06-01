@@ -7,15 +7,10 @@ class TerminalForm extends Component {
         super(props);
 
         this.state = {
-            commandString: '',
             priority: 'HIGH',
             obcsSchedule: 'NOW',
             mcsSchedule: 'NOW'
         };
-    }
-
-    handleGuessChange(event) {
-        this.setState({commandString: event.target.value});
     }
 
     handlePriorityChange(event) {
@@ -37,13 +32,6 @@ class TerminalForm extends Component {
             priority: this.state.priority,
             mcsSchedule: this.state.mcsSchedule
         });
-        // this.setState({commandString: ''});
-    }
-
-    handleKeyPress(e) {
-        if (e.key === 'Enter' && this.state.commandString !== '') {
-            this.onSubmit();
-        }
     }
 
     render() {
