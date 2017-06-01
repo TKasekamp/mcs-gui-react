@@ -26,7 +26,7 @@ const handleMessageReceived = (commands, action) => {
             inList = true;
             return {
                 ...command,
-                result: action.payload.result,
+                responseString: action.payload.responseString,
                 status: action.payload.status
             };
         } else {
@@ -46,10 +46,12 @@ const commands = (state = initialState, action) => {
                 ...state,
                 commands: state.commands.concat({
                     id: action.payload.localId,
-                    command: action.payload.command,
+                    commandString: action.payload.commandString,
+                    priority: action.payload.priority,
+                    mcsSchedule: action.payload.mcsSchedule,
+                    obcsSchedule: action.payload.obcsSchedule,
                     status: IN_FLIGHT,
-                    userId: action.payload.userId,
-                    result: ''
+                    userId: action.payload.userId
                 })
             };
 
@@ -58,8 +60,13 @@ const commands = (state = initialState, action) => {
                 if (command.id === action.payload.localId) {
                     return {
                         ...command,
-                        id: action.payload.id,
-                        status: action.payload.status
+                        id: action.payload.obj.id,
+                        status: action.payload.obj.status,
+                        commandString: action.payload.obj.commandString,
+                        priority: action.payload.obj.priority,
+                        mcsSchedule: action.payload.obj.mcsSchedule,
+                        obcsSchedule: action.payload.obj.obcsSchedule,
+                        userId: action.payload.obj.userId,
                     };
                 } else {
                     return command;

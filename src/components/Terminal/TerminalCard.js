@@ -32,10 +32,10 @@ TerminalCard.propTypes = {
     onSubmit: PropTypes.func.isRequired,
     commands: PropTypes.arrayOf(PropTypes.shape({
         id: PropTypes.string.isRequired,
-        command: PropTypes.string.isRequired,
+        commandString: PropTypes.string.isRequired,
         userId: PropTypes.string.isRequired,
         status: PropTypes.string.isRequired,
-        result: PropTypes.string.isRequired
+        responseString: PropTypes.string
     })).isRequired
 };
 

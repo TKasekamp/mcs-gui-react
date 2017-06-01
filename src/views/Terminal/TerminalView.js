@@ -33,10 +33,10 @@ class TerminalView extends Component {
 TerminalView.propTypes = {
     commands: PropTypes.arrayOf(PropTypes.shape({
         id: PropTypes.string.isRequired,
-        command: PropTypes.string.isRequired,
+        commandString: PropTypes.string.isRequired,
         userId: PropTypes.string.isRequired,
         status: PropTypes.string.isRequired,
-        result: PropTypes.string.isRequired
+        responseString: PropTypes.string
     })).isRequired,
     onSubmit: PropTypes.func.isRequired,
     onConnect: PropTypes.func.isRequired,
@@ -50,7 +50,7 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => ({
     onConnect: () => dispatch(connectRequested()),
-    onSubmit: (command) => dispatch(commandSubmitted(command)),
+    onSubmit: (obj) => dispatch(commandSubmitted(obj)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(TerminalView);

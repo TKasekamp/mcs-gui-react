@@ -13,12 +13,12 @@ export const getPasses = () => (dispatch) => {
     );
 };
 
-export const submitCommand = ({localId, userId, command}) => (dispatch) => {
+export const submitCommand = ({localId, userId, commandString, obcsSchedule, mcsSchedule, priority}) => (dispatch) => {
     jsonAjax(
         SERVER_URL + '/commands',
         'POST',
-        {command, userId},
-        ({id, status}) => dispatch(commandSucceeded({localId, id, status})),
+        {commandString, userId, obcsSchedule, mcsSchedule, priority},
+        (obj) => dispatch(commandSucceeded({localId, obj})),
         ({error} = {}) => dispatch(commandFailed({error}))
     );
 };

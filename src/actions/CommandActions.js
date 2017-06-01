@@ -21,11 +21,14 @@ export const messageReceived = createPayloadForwardingAction(MESSAGE_RECEIVED);
 
 // COMMAND POST
 export const COMMAND_SUBMITTED = 'COMMAND_SUBMITTED';
-export const commandSubmitted = (command) => (
+export const commandSubmitted = (obj) => (
     {
         type: COMMAND_SUBMITTED,
         payload: {
-            command: command,
+            commandString: obj.commandString,
+            obcsSchedule: obj.obcsSchedule,
+            mcsSchedule: obj.mcsSchedule,
+            priority: obj.priority,
             localId: (commandId++).toString(),
             userId: 'test-value'
         }

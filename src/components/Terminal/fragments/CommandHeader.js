@@ -32,7 +32,7 @@ const CommandHeader = (props) => {
 CommandHeader.propTypes = {
     commandString: PropTypes.string.isRequired,
     status: PropTypes.string.isRequired,
-    submitTime: PropTypes.number.isRequired,
+    submitTime: PropTypes.number,
     responseTime: PropTypes.number,
     collapsed: PropTypes.bool.isRequired,
     switchCollapsed: PropTypes.func.isRequired
