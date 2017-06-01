@@ -10,6 +10,7 @@ function loadStories() {
     require('../src/stories/CommandItem');
     require('../src/stories/TerminalCard');
     require('../src/stories/SuggestionItem');
+    require('../src/stories/CommandDescription');
 }
 
 configure(loadStories, module);

@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import CommandInput from './fragments/CommandInput';
+import CommandDescription from './fragments/CommandDescription';
 
 class TerminalForm extends Component {
     constructor(props) {
@@ -9,7 +10,8 @@ class TerminalForm extends Component {
         this.state = {
             priority: 'HIGH',
             obcsSchedule: 'NOW',
-            mcsSchedule: 'NOW'
+            mcsSchedule: 'NOW',
+            commandPrototype: ''
         };
     }
 
@@ -32,15 +34,33 @@ class TerminalForm extends Component {
             priority: this.state.priority,
             mcsSchedule: this.state.mcsSchedule
         });
+        this.setState({commandPrototype: ''})
+    }
+
+    // TODO move to reducer
+    onSuggestionChange(id) {
+        console.log(id);
+        this.setState({commandPrototype: this.props.commandPrototypes.filter(c => c.id === id)[0]})
     }
 
     render() {
+        let desc = '';
+        if (this.state.commandPrototype !== '') {
+            desc = <div className="row">
+                <div className="form-group col-12">
+                    <CommandDescription commandPrototype={this.state.commandPrototype}/>
+                </div>
+            </div>
+        }
+
         return (
             <div className="pt-2">
+                {desc}
                 <div className="row">
                     <div className="form-group col-12">
                         <CommandInput commandPrototypes={this.props.commandPrototypes}
-                                      onSubmit={this.onSubmit.bind(this)}/>
+                                      onSubmit={this.onSubmit.bind(this)}
+                                      onSuggestionChange={this.onSuggestionChange.bind(this)}/>
                     </div>
                 </div>
 

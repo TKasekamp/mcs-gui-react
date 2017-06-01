@@ -74,7 +74,12 @@ class CommandInput extends Component {
         });
     };
 
-    onSuggestionSelected = (event, {method}) => {
+    /**
+     Throw up the id of the suggestion.
+     Block enter submit if needed.
+     */
+    onSuggestionSelected = (event, {suggestion, method}) => {
+        this.props.onSuggestionChange(suggestion.id);
         // Must set true to block submit
         if (method === 'enter') {
             this.setState({blockEnter: true});
@@ -119,6 +124,7 @@ class CommandInput extends Component {
 }
 CommandInput.propTypes = {
     onSubmit: PropTypes.func.isRequired,
+    onSuggestionChange: PropTypes.func.isRequired,
     commandPrototypes: PropTypes.arrayOf(PropTypes.shape({
         id: PropTypes.number.isRequired,
         name: PropTypes.string.isRequired,
