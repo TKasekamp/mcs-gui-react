@@ -8,7 +8,7 @@ const CommandList = (props) => {
         );
     });
     return (
-        <div className="list-group" >
+        <div className="list-group" style={{maxHeight: '30rem', overflowY: 'scroll'}}>
             {resultElements}
         </div>
     );
