@@ -14,7 +14,7 @@ const initialState = {
     commands: [],
     message: ''
 };
-export const IN_FLIGHT = 'In Flight';
+export const IN_FLIGHT = 'IN_FLIGHT';
 /* export const ACCEPTED = 'created';
  export const FAILED = 'failed';*/
 

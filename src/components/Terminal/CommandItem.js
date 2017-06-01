@@ -17,6 +17,19 @@ class CommandItem extends Component {
         this.state.collapsed ? this.setState({collapsed: false}) : this.setState({collapsed: true});
     }
 
+    getCalloutClass() {
+        switch (this.props.command.status) {
+            case ('IN_FLIGHT'):
+                return '';
+            case ('FAILED'):
+                return 'callout-danger';
+            case ('RESPONSE_RECEIVED'):
+                return 'callout-success'
+            default:
+                return 'callout-primary';
+        }
+    }
+
     render() {
         let otherData = '';
         if (!this.state.collapsed) {
@@ -27,7 +40,9 @@ class CommandItem extends Component {
                                  mcsSchedule={this.props.command.mcsSchedule}/>
             </div>;
         }
-        return <div className="list-group-item callout callout-info">
+
+        const calloutClass = this.getCalloutClass();
+        return <div className={"list-group-item callout " +calloutClass}>
             <CommandHeader submitTime={this.props.command.submitTime} status={this.props.command.status}
                            commandString={this.props.command.commandString}
                            collapsed={this.state.collapsed}

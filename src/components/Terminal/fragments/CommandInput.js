@@ -46,6 +46,7 @@ class CommandInput extends Component {
         // BlockEnter must be false to allow submit
         if (e.key === 'Enter' && this.state.value !== '' && !this.state.blockEnter) {
             this.props.onSubmit({commandString: this.state.value});
+            this.setState({value: ''});
         }
         else if (e.key === 'Enter' && this.state.blockEnter) {
             this.setState({blockEnter: false});
