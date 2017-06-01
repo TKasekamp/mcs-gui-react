@@ -11,11 +11,9 @@ const CommandItem = (props) => {
                        commandString={props.command.commandString}
                        responseTime={props.command.responseTime}/>
         <CommandResponse responseString={props.command.responseString} responseTime={props.command.responseTime}/>
-        <div className="row">
+        <div className="row" style={{paddingLeft: '1rem'}}>
             <CommandData userId={props.command.userId} id={props.command.id} priority={props.command.priority}/>
             <CommandSchedule obcsSchedule={props.command.obcsSchedule} mcsSchedule={props.command.mcsSchedule}/>
-            <CommandData userId={props.command.userId} id={props.command.id} priority={props.command.priority}/>
-            <CommandData userId={props.command.userId} id={props.command.id} priority={props.command.priority}/>
         </div>
     </div>
 };
