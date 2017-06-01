@@ -11,12 +11,12 @@ const CommandResponse = (props) => {
     const message = props.responseString !== '' ? props.responseString : 'Waiting for response...';
 
     return <div className="row">
-        <div className="col-9">
+        <div className="col-8">
             <pre>{message}</pre>
         </div>
 
-        <div className="col-3">
-            <small className="text-muted text-uppercase">Response time </small>
+        <div className="col-4">
+            <small className="text-muted text-uppercase">Response time</small>
             <small>{rTime}</small>
         </div>
     </div>

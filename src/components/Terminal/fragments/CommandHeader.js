@@ -9,14 +9,22 @@ const CommandHeader = (props) => {
     const sTime = myIsoFormat(props.submitTime);
 
     return <div className="row">
-        <div className="col-7"><kbd>{props.commandString}</kbd></div>
+        <div className="col-6"><kbd>{props.commandString}</kbd></div>
         <div className="col-2">
-            <small className="text-muted text-uppercase">Status </small>
+            <small className="text-muted text-uppercase">Status</small>
             <small>{props.status}</small>
         </div>
         <div className="col-3">
-            <small className="text-muted text-uppercase">Submit time </small>
+            <small className="text-muted text-uppercase">Submit time</small>
             <small>{sTime}</small>
+        </div>
+        <div className="col-1" style={{padding: 'initial'}}>
+            <label className="switch switch-default switch-primary-outline-alt">
+                <input type="checkbox" className="switch-input" value={props.collapsed}
+                       onChange={props.switchCollapsed}/>
+                <span className="switch-label"/>
+                <span className="switch-handle"/>
+            </label>
         </div>
     </div>
 };
@@ -26,6 +34,8 @@ CommandHeader.propTypes = {
     status: PropTypes.string.isRequired,
     submitTime: PropTypes.number.isRequired,
     responseTime: PropTypes.number,
+    collapsed: PropTypes.bool.isRequired,
+    switchCollapsed: PropTypes.func.isRequired
 };
 
 export default CommandHeader;
