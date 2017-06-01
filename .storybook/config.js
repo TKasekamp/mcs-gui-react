@@ -9,6 +9,7 @@ function loadStories() {
     require('../src/stories/PassStatus');
     require('../src/stories/CommandItem');
     require('../src/stories/TerminalCard');
+    require('../src/stories/SuggestionItem');
 }
 
 configure(loadStories, module);
