@@ -3,6 +3,13 @@ import PropTypes from 'prop-types';
 import TerminalForm from './TerminalForm';
 import CommandList from './CommandList';
 
+const commandPrototypes = [{
+    id: 0,
+    name: 'OBCS.ping',
+    subsystems: ['OBCS', 'COM', 'EPS', 'CAM'],
+    description: 'This does a ping',
+    parameters: [{name: 'timeStamp', description: 'Time when ping was sent', type: 'uint32', default: 0}]
+}];
 const TerminalCard = (props) => {
     return (
         <div className="card">
@@ -15,7 +22,7 @@ const TerminalCard = (props) => {
                         <CommandList commands={props.commands}/>
                     </div>
                     <div className="col-sm-12">
-                        <TerminalForm onSubmit={props.onSubmit}/></div>
+                        <TerminalForm onSubmit={props.onSubmit} commandPrototypes={commandPrototypes}/></div>
                 </div>
             </div>
         </div>

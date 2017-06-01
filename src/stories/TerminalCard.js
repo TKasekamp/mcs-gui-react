@@ -23,7 +23,7 @@ const commandsWaiting = [
         submitTime: 1496240617546,
         status: 'RESPONSE_RECEIVED',
         responseTime: 1496240617546,
-        responseString: 'What if the response \ncontains many lines of text that can be a times very long? \nHow does it display that?',
+        responseString: 'What if the response \ncontains many lines of text that can be at times very long? \nHow does it display that?',
         priority: 'HIGH',
         obcsSchedule: 'NOW',
         mcsSchedule: 'NOW'
