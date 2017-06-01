@@ -8,11 +8,11 @@ const CommandHeader = (props) => {
     return <div className="row">
         <div className="col-6"><kbd>{props.commandString}</kbd></div>
         <div className="col-2">
-            <small className="text-muted text-uppercase">Status</small>
+            <small className="text-muted text-uppercase mr-1">Status</small>
             <small>{props.status}</small>
         </div>
         <div className="col-3">
-            <small className="text-muted text-uppercase">Submit time</small>
+            <small className="text-muted text-uppercase mr-1">Submit time</small>
             <small>{props.submitTime}</small>
         </div>
         <div className="col-1" style={{padding: 'initial'}}>

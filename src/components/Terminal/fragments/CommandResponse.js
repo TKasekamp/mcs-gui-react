@@ -15,7 +15,7 @@ const CommandResponse = (props) => {
         </div>
 
         <div className="col-4">
-            <small className="text-muted text-uppercase">Response time</small>
+            <small className="text-muted text-uppercase mr-1">Response time</small>
             <small>{rTime}</small>
         </div>
     </div>
