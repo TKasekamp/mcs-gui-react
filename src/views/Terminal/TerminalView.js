@@ -8,9 +8,6 @@ class TerminalView extends Component {
     componentDidMount() {
         // Get only if empty
         // TODO move this check to somewhere else
-        // if (this.props.passes.length === 0 && process.env.NODE_ENV === 'production') {
-        //     this.props.onRequestPasses();
-        // }
         if (!this.props.connected) {
             this.props.onConnect();
         }

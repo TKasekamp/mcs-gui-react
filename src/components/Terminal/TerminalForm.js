@@ -39,7 +39,6 @@ class TerminalForm extends Component {
 
     // TODO move to reducer
     onSuggestionChange(id) {
-        console.log(id);
         this.setState({commandPrototype: this.props.commandPrototypes.filter(c => c.id === id)[0]})
     }
 
