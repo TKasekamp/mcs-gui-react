@@ -27,7 +27,8 @@ const handleMessageReceived = (commands, action) => {
             return {
                 ...command,
                 responseString: action.payload.responseString,
-                status: action.payload.status
+                status: action.payload.status,
+                responseTime: action.payload.responseTime,
             };
         } else {
             return command;

@@ -31,7 +31,6 @@ class CommandItem extends Component {
         return <div className="list-group-item callout callout-info">
             <CommandHeader submitTime={this.props.command.submitTime} status={this.props.command.status}
                            commandString={this.props.command.commandString}
-                           responseTime={this.props.command.responseTime}
                            collapsed={this.state.collapsed}
                            switchCollapsed={this.switchCollapseState}/>
             <CommandResponse responseString={this.props.command.responseString}
@@ -40,13 +39,13 @@ class CommandItem extends Component {
         </div>
     }
 }
-;
+
 CommandItem.propTypes = {
     command: PropTypes.shape({
         id: PropTypes.string.isRequired,
         commandString: PropTypes.string.isRequired,
         submitTime: PropTypes.string,
-        responseTime: PropTypes.number,
+        responseTime: PropTypes.string,
         userId: PropTypes.string.isRequired,
         status: PropTypes.string.isRequired,
         responseString: PropTypes.string,

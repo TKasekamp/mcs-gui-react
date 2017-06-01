@@ -30,7 +30,6 @@ CommandHeader.propTypes = {
     commandString: PropTypes.string.isRequired,
     status: PropTypes.string.isRequired,
     submitTime: PropTypes.string,
-    responseTime: PropTypes.number,
     collapsed: PropTypes.bool.isRequired,
     switchCollapsed: PropTypes.func.isRequired
 };

@@ -3,10 +3,9 @@
  */
 import React from 'react';
 import PropTypes from 'prop-types';
-import {myIsoFormat} from '../../../logic/Time';
 
 const CommandResponse = (props) => {
-    const rTime = typeof props.responseTime !== 'undefined' ? myIsoFormat(props.responseTime) : '';
+    const rTime = typeof props.responseTime !== 'undefined' ? props.responseTime : '';
 
     const message = props.responseString !== '' ? props.responseString : 'Waiting for response...';
 
@@ -24,7 +23,7 @@ const CommandResponse = (props) => {
 
 CommandResponse.propTypes = {
     responseString: PropTypes.string,
-    responseTime: PropTypes.number,
+    responseTime: PropTypes.string,
 };
 
 export default CommandResponse;
