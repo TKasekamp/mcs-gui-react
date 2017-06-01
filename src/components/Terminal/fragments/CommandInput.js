@@ -10,7 +10,13 @@ import SuggestionItem from './SuggestionItem';
 // When suggestion is clicked, Autosuggest needs to populate the input element
 // based on the clicked suggestion. Teach Autosuggest how to calculate the
 // input value for every given suggestion.
-const getSuggestionValue = suggestion => suggestion.name;
+const getSuggestionValue = (suggestion) => {
+    const params = suggestion.parameters.map((p) => {
+        return p.default;
+    }).join(' , ');
+
+    return `${suggestion.subsystems[0]}.${suggestion.name}(${params})`;
+};
 
 function renderSuggestion(suggestion) {
 

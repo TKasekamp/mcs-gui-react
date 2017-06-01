@@ -48,21 +48,12 @@ class TerminalForm extends Component {
 
     render() {
         return (
-            <div>
+            <div className="pt-2">
                 <div className="row">
                     <div className="form-group col-12">
                         <CommandInput commandPrototypes={this.props.commandPrototypes}
                                       onSubmit={this.onSubmit.bind(this)}/>
                     </div>
-                    {/*                    <div className="form-group col-12"><input
-                     id="word-input"
-                     className="form-control"
-                     type="text"
-                     placeholder="Enter stuff"
-                     value={this.state.commandString}
-                     onChange={this.handleGuessChange.bind(this)}
-                     onKeyPress={this.handleKeyPress.bind(this)}
-                     /></div>*/}
                 </div>
 
                 <div className="row">
