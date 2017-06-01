@@ -6,12 +6,12 @@ import CommandData from './fragments/CommandData';
 import CommandSchedule from './fragments/CommandSchedule';
 
 const CommandItem = (props) => {
-    return <div>
+    return <div className="callout callout-info">
         <CommandHeader submitTime={props.command.submitTime} status={props.command.status}
                        commandString={props.command.commandString}
                        responseTime={props.command.responseTime}/>
         <CommandResponse responseString={props.command.responseString} responseTime={props.command.responseTime}/>
-        <div className="row" style={{paddingLeft: '1rem'}}>
+        <div className="row">
             <CommandData userId={props.command.userId} id={props.command.id} priority={props.command.priority}/>
             <CommandSchedule obcsSchedule={props.command.obcsSchedule} mcsSchedule={props.command.mcsSchedule}/>
         </div>
