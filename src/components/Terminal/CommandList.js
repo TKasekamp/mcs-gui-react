@@ -1,18 +1,38 @@
-import React from 'react';
+import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import CommandItem from './CommandItem';
-const CommandList = (props) => {
-    const resultElements = props.commands.map((command) => {
+import * as ReactDOM from 'react-dom';
+class CommandList extends Component {
+
+    componentDidMount() {
+        this.scrollToBottom();
+    }
+
+    componentDidUpdate() {
+        this.scrollToBottom();
+    }
+
+    scrollToBottom = () => {
+        const commandsContainer = ReactDOM.findDOMNode(this.commandsContainer);
+        commandsContainer.scrollTop = commandsContainer.scrollHeight;
+    };
+
+    render() {
+        const resultElements = this.props.commands.map((command) => {
+            return (
+                <CommandItem command={command} key={command.id}/>
+            );
+        });
         return (
-            <CommandItem command={command} key={command.id}/>
+            <div ref={(el) => {
+                this.commandsContainer = el;
+            }} className="list-group" style={{maxHeight: '30rem', overflowY: 'scroll'}}>
+                {resultElements}
+            </div>
         );
-    });
-    return (
-        <div className="list-group" style={{maxHeight: '30rem', overflowY: 'scroll'}}>
-            {resultElements}
-        </div>
-    );
-};
+    }
+}
+;
 
 CommandList.propTypes = {
     commands: PropTypes.arrayOf(PropTypes.shape({
