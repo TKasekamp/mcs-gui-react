@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
+import Example from './fragments/Example';
 
 class TerminalForm extends Component {
     constructor(props) {
@@ -49,6 +50,9 @@ class TerminalForm extends Component {
         return (
             <div>
                 <div className="row">
+                    <div className="form-group col-12">
+                    <Example commandPrototypes={this.props.commandPrototypes}/>
+                    </div>
                     <div className="form-group col-12"><input
                         id="word-input"
                         className="form-control"
@@ -101,7 +105,7 @@ TerminalForm.propTypes = {
             name: PropTypes.string.isRequired,
             description: PropTypes.string.isRequired,
             type: PropTypes.string.isRequired,
-            default: PropTypes.any.isRequired,
+            default: PropTypes.any,
         })).isRequired
     })).isRequired
 };

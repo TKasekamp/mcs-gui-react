@@ -5,11 +5,30 @@ import CommandList from './CommandList';
 
 const commandPrototypes = [{
     id: 0,
-    name: 'OBCS.ping',
+    name: 'ping',
     subsystems: ['OBCS', 'COM', 'EPS', 'CAM'],
     description: 'This does a ping',
     parameters: [{name: 'timeStamp', description: 'Time when ping was sent', type: 'uint32', default: 0}]
-}];
+},
+    {
+        id: 1,
+        name: 'pong',
+        subsystems: ['OBCS', 'COM', 'EPS', 'CAM'],
+        description: 'This does a pong',
+        parameters: [{name: 'timeStamp', description: 'Time when pong was sent', type: 'uint32', default: 0}]
+    },
+    {
+        id: 16,
+        name: 'ifimg',
+        subsystems: ['OBCS', 'CAM'],
+        description: 'Initializes the storage of a firmware image.',
+        parameters: [{name: 'slot', description: 'Firmware image slot', type: 'uint8'},
+            {name: 'size', description: 'Length of the firmware image, in bytes', type: 'uint32'},
+            {name: 'version', description: 'Firmware image version identifier', type: 'uint32'},
+            {name: 'crc', description: 'Firmware image checksum', type: 'uint32'}
+        ]
+    }
+];
 const TerminalCard = (props) => {
     return (
         <div className="card">
