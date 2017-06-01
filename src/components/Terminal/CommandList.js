@@ -2,8 +2,8 @@ import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import CommandItem from './CommandItem';
 import * as ReactDOM from 'react-dom';
-class CommandList extends Component {
 
+class CommandList extends Component {
     componentDidMount() {
         this.scrollToBottom();
     }
@@ -32,7 +32,6 @@ class CommandList extends Component {
         );
     }
 }
-;
 
 CommandList.propTypes = {
     commands: PropTypes.arrayOf(PropTypes.shape({
