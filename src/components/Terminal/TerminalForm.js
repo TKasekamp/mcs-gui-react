@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
-import Example from './fragments/Example';
+import CommandInput from './fragments/CommandInput';
 
 class TerminalForm extends Component {
     constructor(props) {
@@ -30,14 +30,14 @@ class TerminalForm extends Component {
         this.setState({mcsSchedule: event.target.value});
     }
 
-    onSubmit() {
+    onSubmit(obj) {
         this.props.onSubmit({
-            commandString: this.state.commandString,
+            commandString: obj.commandString,
             obcsSchedule: this.state.obcsSchedule,
             priority: this.state.priority,
             mcsSchedule: this.state.mcsSchedule
         });
-        this.setState({commandString: ''});
+        // this.setState({commandString: ''});
     }
 
     handleKeyPress(e) {
@@ -51,17 +51,18 @@ class TerminalForm extends Component {
             <div>
                 <div className="row">
                     <div className="form-group col-12">
-                    <Example commandPrototypes={this.props.commandPrototypes}/>
+                        <CommandInput commandPrototypes={this.props.commandPrototypes}
+                                      onSubmit={this.onSubmit.bind(this)}/>
                     </div>
-                    <div className="form-group col-12"><input
-                        id="word-input"
-                        className="form-control"
-                        type="text"
-                        placeholder="Enter stuff"
-                        value={this.state.commandString}
-                        onChange={this.handleGuessChange.bind(this)}
-                        onKeyPress={this.handleKeyPress.bind(this)}
-                    /></div>
+                    {/*                    <div className="form-group col-12"><input
+                     id="word-input"
+                     className="form-control"
+                     type="text"
+                     placeholder="Enter stuff"
+                     value={this.state.commandString}
+                     onChange={this.handleGuessChange.bind(this)}
+                     onKeyPress={this.handleKeyPress.bind(this)}
+                     /></div>*/}
                 </div>
 
                 <div className="row">

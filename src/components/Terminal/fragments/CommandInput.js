@@ -3,6 +3,7 @@
  */
 import Autosuggest from 'react-autosuggest';
 import React, {Component} from 'react';
+import PropTypes from 'prop-types';
 import SuggestionItem from './SuggestionItem';
 
 
@@ -19,7 +20,7 @@ function renderSuggestion(suggestion) {
     );
 }
 
-class Example extends Component {
+class CommandInput extends Component {
     constructor() {
         super();
 
@@ -30,8 +31,19 @@ class Example extends Component {
         // and they are initially empty because the Autosuggest is closed.
         this.state = {
             value: '',
-            suggestions: []
+            suggestions: [],
+            blockEnter: false
         };
+    }
+
+    handleKeyPress(e) {
+        // BlockEnter must be false to allow submit
+        if (e.key === 'Enter' && this.state.value !== '' && !this.state.blockEnter) {
+            this.props.onSubmit({commandString: this.state.value});
+        }
+        else if (e.key === 'Enter' && this.state.blockEnter) {
+            this.setState({blockEnter: false});
+        }
     }
 
     onChange = (event, {newValue}) => {
@@ -55,11 +67,19 @@ class Example extends Component {
         });
     };
 
+    onSuggestionSelected = (event, {method}) => {
+        // Must set true to block submit
+        if (method === 'enter') {
+            this.setState({blockEnter: true});
+        }
+    };
+
     // Teach Autosuggest how to calculate suggestions for any given input value.
     getSuggestions = (value) => {
         const inputValue = value.trim().toLowerCase();
         const inputLength = inputValue.length;
 
+        // TODO improve regex
         return inputLength === 0 ? [] : this.props.commandPrototypes.filter(command =>
             command.name.toLowerCase().slice(0, inputLength) === inputValue
         );
@@ -72,7 +92,8 @@ class Example extends Component {
         const inputProps = {
             placeholder: 'Type in command',
             value,
-            onChange: this.onChange
+            onChange: this.onChange,
+            onKeyPress: this.handleKeyPress.bind(this)
         };
 
         // Finally, render it!
@@ -80,6 +101,7 @@ class Example extends Component {
             <Autosuggest
                 suggestions={suggestions}
                 onSuggestionsFetchRequested={this.onSuggestionsFetchRequested}
+                onSuggestionSelected={this.onSuggestionSelected}
                 onSuggestionsClearRequested={this.onSuggestionsClearRequested}
                 getSuggestionValue={getSuggestionValue}
                 renderSuggestion={renderSuggestion}
@@ -88,5 +110,19 @@ class Example extends Component {
         );
     }
 }
-
-export default Example;
+CommandInput.propTypes = {
+    onSubmit: PropTypes.func.isRequired,
+    commandPrototypes: PropTypes.arrayOf(PropTypes.shape({
+        id: PropTypes.number.isRequired,
+        name: PropTypes.string.isRequired,
+        description: PropTypes.string.isRequired,
+        subsystems: PropTypes.arrayOf(PropTypes.string).isRequired,
+        parameters: PropTypes.arrayOf(PropTypes.shape({
+            name: PropTypes.string.isRequired,
+            description: PropTypes.string.isRequired,
+            type: PropTypes.string.isRequired,
+            default: PropTypes.any,
+        })).isRequired
+    })).isRequired
+};
+export default CommandInput;
