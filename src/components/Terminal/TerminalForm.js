@@ -92,6 +92,18 @@ class TerminalForm extends Component {
 }
 TerminalForm.propTypes = {
     onSubmit: PropTypes.func.isRequired,
+    commandPrototypes: PropTypes.arrayOf(PropTypes.shape({
+        id: PropTypes.number.isRequired,
+        name: PropTypes.string.isRequired,
+        description: PropTypes.string.isRequired,
+        subsystems: PropTypes.arrayOf(PropTypes.string).isRequired,
+        parameters: PropTypes.arrayOf(PropTypes.shape({
+            name: PropTypes.string.isRequired,
+            description: PropTypes.string.isRequired,
+            type: PropTypes.string.isRequired,
+            default: PropTypes.any.isRequired,
+        })).isRequired
+    })).isRequired
 };
 
 export default TerminalForm;

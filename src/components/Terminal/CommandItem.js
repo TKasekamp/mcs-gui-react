@@ -27,7 +27,6 @@ class CommandItem extends Component {
                                  mcsSchedule={this.props.command.mcsSchedule}/>
             </div>;
         }
-
         return <div className="list-group-item callout callout-info">
             <CommandHeader submitTime={this.props.command.submitTime} status={this.props.command.status}
                            commandString={this.props.command.commandString}
