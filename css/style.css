@@ -1554,7 +1554,7 @@ pre {
     .table-responsive.table-bordered {
       border: 0; } }
 
-.form-control {
+.form-control, .react-autosuggest__input {
   display: block;
   width: 100%;
   padding: 0.5rem 1rem;
@@ -1567,25 +1567,25 @@ pre {
   border: 1px solid rgba(0, 0, 0, 0.15);
   border-radius: 0;
   transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s; }
-  .form-control::-ms-expand {
+  .form-control::-ms-expand, .react-autosuggest__input::-ms-expand {
     background-color: transparent;
     border: 0; }
-  .form-control:focus {
+  .form-control:focus, .react-autosuggest__input:focus {
     color: #607d8b;
     background-color: #fff;
     border-color: #8ad4ee;
     outline: none; }
-  .form-control::placeholder {
+  .form-control::placeholder, .react-autosuggest__input::placeholder {
     color: #b0bec5;
     opacity: 1; }
-  .form-control:disabled, .form-control[readonly] {
+  .form-control:disabled, .react-autosuggest__input:disabled, .form-control[readonly], [readonly].react-autosuggest__input {
     background-color: #cfd8dc;
     opacity: 1; }
 
-select.form-control:not([size]):not([multiple]) {
+select.form-control:not([size]):not([multiple]), select.react-autosuggest__input:not([size]):not([multiple]) {
   height: calc(2.09375rem + 2px); }
 
-select.form-control:focus::-ms-value {
+select.form-control:focus::-ms-value, select.react-autosuggest__input:focus::-ms-value {
   color: #607d8b;
   background-color: #fff; }
 
@@ -1621,34 +1621,34 @@ select.form-control:focus::-ms-value {
   line-height: 1.25;
   border: solid transparent;
   border-width: 1px 0; }
-  .form-control-static.form-control-sm, .input-group-sm > .form-control-static.form-control,
+  .form-control-static.form-control-sm, .input-group-sm > .form-control-static.form-control, .input-group-sm > .form-control-static.react-autosuggest__input,
   .input-group-sm > .form-control-static.input-group-addon,
-  .input-group-sm > .input-group-btn > .form-control-static.btn, .form-control-static.form-control-lg, .input-group-lg > .form-control-static.form-control,
+  .input-group-sm > .input-group-btn > .form-control-static.btn, .form-control-static.form-control-lg, .input-group-lg > .form-control-static.form-control, .input-group-lg > .form-control-static.react-autosuggest__input,
   .input-group-lg > .form-control-static.input-group-addon,
   .input-group-lg > .input-group-btn > .form-control-static.btn {
     padding-right: 0;
     padding-left: 0; }
 
-.form-control-sm, .input-group-sm > .form-control,
+.form-control-sm, .input-group-sm > .form-control, .input-group-sm > .react-autosuggest__input,
 .input-group-sm > .input-group-addon,
 .input-group-sm > .input-group-btn > .btn {
   padding: 0.25rem 0.5rem;
   font-size: 0.875rem;
   line-height: 1.5; }
 
-select.form-control-sm:not([size]):not([multiple]), .input-group-sm > select.form-control:not([size]):not([multiple]),
+select.form-control-sm:not([size]):not([multiple]), .input-group-sm > select.form-control:not([size]):not([multiple]), .input-group-sm > select.react-autosuggest__input:not([size]):not([multiple]),
 .input-group-sm > select.input-group-addon:not([size]):not([multiple]),
 .input-group-sm > .input-group-btn > select.btn:not([size]):not([multiple]) {
   height: calc(1.8125rem + 2px); }
 
-.form-control-lg, .input-group-lg > .form-control,
+.form-control-lg, .input-group-lg > .form-control, .input-group-lg > .react-autosuggest__input,
 .input-group-lg > .input-group-addon,
 .input-group-lg > .input-group-btn > .btn {
   padding: 0.5rem 1rem;
   font-size: 1.25rem;
   line-height: 1.5; }
 
-select.form-control-lg:not([size]):not([multiple]), .input-group-lg > select.form-control:not([size]):not([multiple]),
+select.form-control-lg:not([size]):not([multiple]), .input-group-lg > select.form-control:not([size]):not([multiple]), .input-group-lg > select.react-autosuggest__input:not([size]):not([multiple]),
 .input-group-lg > select.input-group-addon:not([size]):not([multiple]),
 .input-group-lg > .input-group-btn > select.btn:not([size]):not([multiple]) {
   height: calc(2.875rem + 2px); }
@@ -1703,7 +1703,7 @@ select.form-control-lg:not([size]):not([multiple]), .input-group-lg > select.for
 .has-success .custom-control {
   color: #4dbd74; }
 
-.has-success .form-control,
+.has-success .form-control, .has-success .react-autosuggest__input,
 .has-success .custom-select,
 .has-success .custom-file-control {
   border-color: #4dbd74; }
@@ -1723,7 +1723,7 @@ select.form-control-lg:not([size]):not([multiple]), .input-group-lg > select.for
 .has-warning .custom-control {
   color: #f8cb00; }
 
-.has-warning .form-control,
+.has-warning .form-control, .has-warning .react-autosuggest__input,
 .has-warning .custom-select,
 .has-warning .custom-file-control {
   border-color: #f8cb00; }
@@ -1743,7 +1743,7 @@ select.form-control-lg:not([size]):not([multiple]), .input-group-lg > select.for
 .has-danger .custom-control {
   color: #f86c6b; }
 
-.has-danger .form-control,
+.has-danger .form-control, .has-danger .react-autosuggest__input,
 .has-danger .custom-select,
 .has-danger .custom-file-control {
   border-color: #f86c6b; }
@@ -1774,7 +1774,7 @@ select.form-control-lg:not([size]):not([multiple]), .input-group-lg > select.for
       flex-flow: row wrap;
       align-items: center;
       margin-bottom: 0; }
-    .form-inline .form-control {
+    .form-inline .form-control, .form-inline .react-autosuggest__input {
       display: inline-block;
       width: auto;
       vertical-align: middle; }
@@ -2332,18 +2332,19 @@ tbody.collapse.show {
   position: relative;
   display: flex;
   width: 100%; }
-  .input-group .form-control {
+  .input-group .form-control, .input-group .react-autosuggest__input {
     position: relative;
     z-index: 2;
     flex: 1 1 auto;
     width: 1%;
     margin-bottom: 0; }
-    .input-group .form-control:focus, .input-group .form-control:active, .input-group .form-control:hover {
+    .input-group .form-control:focus, .input-group .react-autosuggest__input:focus, .input-group .form-control:active, .input-group .react-autosuggest__input:active, .input-group .form-control:hover, .input-group .react-autosuggest__input:hover {
       z-index: 3; }
 
 .input-group-addon,
 .input-group-btn,
-.input-group .form-control {
+.input-group .form-control,
+.input-group .react-autosuggest__input {
   display: flex;
   align-items: center; }
 
@@ -2379,7 +2380,7 @@ tbody.collapse.show {
 .input-group-addon:not(:last-child) {
   border-right: 0; }
 
-.form-control + .input-group-addon:not(:first-child) {
+.form-control + .input-group-addon:not(:first-child), .react-autosuggest__input + .input-group-addon:not(:first-child) {
   border-left: 0; }
 
 .input-group-btn {
@@ -3306,7 +3307,7 @@ a.badge:focus, a.badge:hover {
 .media-body {
   flex: 1; }
 
-.list-group {
+.list-group, .react-autosuggest__suggestions-list {
   display: flex;
   flex-direction: column;
   padding-left: 0;
@@ -3324,35 +3325,35 @@ a.badge:focus, a.badge:hover {
     color: #263238;
     background-color: #cfd8dc; }
 
-.list-group-item {
+.list-group-item, .react-autosuggest__suggestion {
   position: relative;
   display: block;
   padding: 0.75rem 1.25rem;
   margin-bottom: -1px;
   background-color: #fff;
   border: 1px solid rgba(0, 0, 0, 0.125); }
-  .list-group-item:last-child {
+  .list-group-item:last-child, .react-autosuggest__suggestion:last-child {
     margin-bottom: 0; }
-  .list-group-item:focus, .list-group-item:hover {
+  .list-group-item:focus, .react-autosuggest__suggestion:focus, .list-group-item:hover, .react-autosuggest__suggestion:hover {
     text-decoration: none; }
-  .list-group-item.disabled, .list-group-item:disabled {
+  .list-group-item.disabled, .disabled.react-autosuggest__suggestion, .list-group-item:disabled, .react-autosuggest__suggestion:disabled {
     color: #b0bec5;
     background-color: #fff; }
-  .list-group-item.active {
+  .list-group-item.active, .active.react-autosuggest__suggestion {
     z-index: 2;
     color: #fff;
     background-color: #20a8d8;
     border-color: #20a8d8; }
 
-.list-group-flush .list-group-item {
+.list-group-flush .list-group-item, .list-group-flush .react-autosuggest__suggestion {
   border-right: 0;
   border-left: 0;
   border-radius: 0; }
 
-.list-group-flush:first-child .list-group-item:first-child {
+.list-group-flush:first-child .list-group-item:first-child, .list-group-flush:first-child .react-autosuggest__suggestion:first-child {
   border-top: 0; }
 
-.list-group-flush:last-child .list-group-item:last-child {
+.list-group-flush:last-child .list-group-item:last-child, .list-group-flush:last-child .react-autosuggest__suggestion:last-child {
   border-bottom: 0; }
 
 .list-group-item-success {
@@ -8914,3 +8915,43 @@ hr.transparent {
     border-right-color: #f86c6b; }
   *[dir="rtl"] .callout-success {
     border-right-color: #4dbd74; }
+
+.react-autosuggest__container {
+  position: relative; }
+
+.react-autosuggest__input:focus {
+  outline: none; }
+
+.react-autosuggest__container--open .react-autosuggest__input {
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0; }
+
+.react-autosuggest__suggestions-container {
+  display: none;
+  width: 100%; }
+
+.react-autosuggest__container--open .react-autosuggest__suggestions-container {
+  display: block;
+  position: absolute;
+  z-index: 2; }
+
+.react-autosuggest__suggestion:not(:first-child) {
+  border-top: 1px solid #ddd; }
+
+.react-autosuggest__suggestion--focused {
+  background-color: #0C7EAF;
+  color: #fff; }
+
+.suggestion-content {
+  display: flex;
+  align-items: center;
+  background-repeat: no-repeat; }
+
+.react-autosuggest__suggestion--focused .highlight {
+  color: #120000; }
+
+.suggestionItem span:after {
+  content: ', '; }
+
+.suggestionItem span:last-of-type:after {
+  content: ''; }
