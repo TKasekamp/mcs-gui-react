@@ -67,6 +67,7 @@ const commands = (state = initialState, action) => {
                         mcsSchedule: action.payload.obj.mcsSchedule,
                         obcsSchedule: action.payload.obj.obcsSchedule,
                         userId: action.payload.obj.userId,
+                        submitTime: action.payload.obj.submitTime,
                     };
                 } else {
                     return command;

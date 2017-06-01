@@ -45,7 +45,7 @@ CommandItem.propTypes = {
     command: PropTypes.shape({
         id: PropTypes.string.isRequired,
         commandString: PropTypes.string.isRequired,
-        submitTime: PropTypes.number,
+        submitTime: PropTypes.string,
         responseTime: PropTypes.number,
         userId: PropTypes.string.isRequired,
         status: PropTypes.string.isRequired,

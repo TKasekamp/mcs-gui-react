@@ -3,11 +3,8 @@
  */
 import React from 'react';
 import PropTypes from 'prop-types';
-import {myIsoFormat} from '../../../logic/Time';
 
 const CommandHeader = (props) => {
-    const sTime = myIsoFormat(props.submitTime);
-
     return <div className="row">
         <div className="col-6"><kbd>{props.commandString}</kbd></div>
         <div className="col-2">
@@ -16,7 +13,7 @@ const CommandHeader = (props) => {
         </div>
         <div className="col-3">
             <small className="text-muted text-uppercase">Submit time</small>
-            <small>{sTime}</small>
+            <small>{props.submitTime}</small>
         </div>
         <div className="col-1" style={{padding: 'initial'}}>
             <label className="switch switch-default switch-primary-outline-alt">
@@ -32,7 +29,7 @@ const CommandHeader = (props) => {
 CommandHeader.propTypes = {
     commandString: PropTypes.string.isRequired,
     status: PropTypes.string.isRequired,
-    submitTime: PropTypes.number,
+    submitTime: PropTypes.string,
     responseTime: PropTypes.number,
     collapsed: PropTypes.bool.isRequired,
     switchCollapsed: PropTypes.func.isRequired
