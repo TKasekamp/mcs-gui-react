@@ -71,7 +71,7 @@ const TLECard = (props) => {
                 <div>Other data is here, just can't be bothered to write it out.</div>
             </dl>
         </div>
-    </div>
+    </div>;
 };
 
 TLECard.propTypes = {

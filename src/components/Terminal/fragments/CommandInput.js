@@ -19,7 +19,6 @@ const getSuggestionValue = (suggestion) => {
 };
 
 function renderSuggestion(suggestion) {
-
     return (
         <SuggestionItem subsystems={suggestion.subsystems} name={suggestion.name} id={suggestion.id}
                         parameters={suggestion.parameters}/>
@@ -47,55 +46,54 @@ class CommandInput extends Component {
         if (e.key === 'Enter' && this.state.value !== '' && !this.state.blockEnter) {
             this.props.onSubmit({commandString: this.state.value});
             this.setState({value: ''});
-        }
-        else if (e.key === 'Enter' && this.state.blockEnter) {
+        } else if (e.key === 'Enter' && this.state.blockEnter) {
             this.setState({blockEnter: false});
         }
     }
 
-    onChange = (event, {newValue}) => {
+    onChange(event, {newValue}) {
         this.setState({
             value: newValue
         });
-    };
+    }
 
     // Autosuggest will call this function every time you need to update suggestions.
     // You already implemented this logic above, so just use it.
-    onSuggestionsFetchRequested = ({value}) => {
+    onSuggestionsFetchRequested({value}) {
         this.setState({
             suggestions: this.getSuggestions(value)
         });
-    };
+    }
 
     // Autosuggest will call this function every time you need to clear suggestions.
-    onSuggestionsClearRequested = () => {
+    onSuggestionsClearRequested() {
         this.setState({
             suggestions: []
         });
-    };
+    }
 
-    /**
+    /*
      Throw up the id of the suggestion.
      Block enter submit if needed.
      */
-    onSuggestionSelected = (event, {suggestion, method}) => {
+    onSuggestionSelected(event, {suggestion, method}) {
         this.props.onSuggestionChange(suggestion.id);
         // Must set true to block submit
         if (method === 'enter') {
             this.setState({blockEnter: true});
         }
-    };
+    }
 
     // Teach Autosuggest how to calculate suggestions for any given input value.
-    getSuggestions = (value) => {
+    getSuggestions(value) {
         const inputValue = value.trim().toLowerCase();
         const inputLength = inputValue.length;
 
         // TODO improve regex
-        return inputLength === 0 ? [] : this.props.commandPrototypes.filter(command =>
+        return inputLength === 0 ? [] : this.props.commandPrototypes.filter((command) =>
             command.name.toLowerCase().slice(0, inputLength) === inputValue
         );
-    };
+    }
 
     render() {
         const {value, suggestions} = this.state;

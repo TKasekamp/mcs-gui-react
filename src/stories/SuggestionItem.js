@@ -1,6 +1,5 @@
 import React from 'react';
 import {storiesOf} from '@kadira/storybook';
-import CommandItem from '../components/Terminal/CommandItem';
 import SuggestionItem from '../components/Terminal/fragments/SuggestionItem';
 
 const noParams = {
@@ -34,7 +33,6 @@ storiesOf('SuggestionItem', module)
                                     subsystems={noParams.subsystems}/>);
         }
     )
-
     .add('one param', () => {
             return (<SuggestionItem id={oneParams.id} parameters={oneParams.parameters} name={oneParams.name}
                                     subsystems={oneParams.subsystems}/>);
@@ -45,4 +43,3 @@ storiesOf('SuggestionItem', module)
                                     subsystems={twoParams.subsystems}/>);
         }
     );
-;

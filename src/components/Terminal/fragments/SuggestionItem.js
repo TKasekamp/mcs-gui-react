@@ -8,13 +8,12 @@ const SuggestionItem = (props) => {
     const params = props.parameters.map((p) => {
         return <span key={p.name}>
             <small className="text-muted mr-1">{p.name}:</small>
-            {p.type}</span>
+            {p.type}</span>;
     });
-    return <div >
+    return <div>
         <span className="badge badge-danger">{props.subsystems[0]}</span> {props.name}<span
-        className="suggestionItem">( {params}
-        )</span>
-    </div>
+        className="suggestionItem">( {params})</span>
+    </div>;
 };
 
 SuggestionItem.propTypes = {

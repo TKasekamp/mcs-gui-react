@@ -1,9 +1,12 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import CommandItem from './CommandItem';
-import * as ReactDOM from 'react-dom';
 
 class CommandList extends Component {
+    constructor() {
+        super();
+        this.commandsContainer = '';
+    }
     componentDidMount() {
         this.scrollToBottom();
     }
@@ -12,10 +15,9 @@ class CommandList extends Component {
         this.scrollToBottom();
     }
 
-    scrollToBottom = () => {
-        const commandsContainer = ReactDOM.findDOMNode(this.commandsContainer);
-        commandsContainer.scrollTop = commandsContainer.scrollHeight;
-    };
+    scrollToBottom() {
+        this.commandsContainer.scrollTop = this.commandsContainer.scrollHeight;
+    }
 
     render() {
         const resultElements = this.props.commands.map((command) => {

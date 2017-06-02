@@ -2,7 +2,7 @@ import React from 'react';
 import {storiesOf} from '@kadira/storybook';
 import CommandItem from '../components/Terminal/CommandItem';
 
-const commandWaiting =     {
+const commandWaiting = {
     id: '40e4db72-34ee-43c0-9910-bf847b3bc276',
     userId: '20c5c7db-1849-44fc-bfc0-e6b218eeccc7',
     commandString: 'OBCS.ping()',

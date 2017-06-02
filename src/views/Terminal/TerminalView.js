@@ -32,7 +32,8 @@ class TerminalView extends Component {
                                 <p>This is a prototype of the command terminal. It is based on the ESTCube-1 commands
                                     and their syntax.</p>
                                 <p>The commands are sent to a dummy server that will respond via Websocket when response
-                                    has been received. The time delays are deliberate and done with <code>Thread.sleep(3000)</code>
+                                    has been received. The time delays are deliberate and done with
+                                    <code>Thread.sleep(3000)</code>
                                 </p>
                                 <h3>Features</h3>
                                 <p>All form inputs work</p>
@@ -45,7 +46,8 @@ class TerminalView extends Component {
                                     <li>pong</li>
                                     <li>ifimg</li>
                                 </ul>
-                                <p>Special feature! Submit command <code>a</code> to bypass the normal <code>Thread.sleep</code>
+                                <p>Special feature! Submit command <code>a</code> to bypass the normal
+                                    <code>Thread.sleep</code>
                                     times. This is the maximum performance of the current GUI and server combo</p>
                                 <p>Description text when selecting one of the above commands</p>
                                 <p>Expand command response with the switch at the side. All other metadata will be
@@ -54,7 +56,8 @@ class TerminalView extends Component {
                                 <p>Card color change when command status changes</p>
                                 <p>Terminal scroll to bottom when there are too many commands</p>
                                 <p>Python syntax highlihting, done with <a
-                                    href="https://www.npmjs.com/package/react-syntax-highlighter">react-syntax-highlighter</a>,
+                                    href="https://www.npmjs.com/package/react-syntax-highlighter">
+                                    react-syntax-highlighter</a>,
                                     style xcode.
                                 </p>
                                 <h3>Possible improvements</h3>

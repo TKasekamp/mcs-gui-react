@@ -5,7 +5,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const CommandSchedule = (props) => {
-
     return <div className="col-3">
         <div className="row">
             <label className="col-12 text-uppercase small font-weight-bold">Schedule</label>
@@ -22,7 +21,7 @@ const CommandSchedule = (props) => {
                 {props.mcsSchedule}
             </div>
         </div>
-    </div>
+    </div>;
 };
 
 CommandSchedule.propTypes = {

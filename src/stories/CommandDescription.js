@@ -32,7 +32,6 @@ storiesOf('CommandDescription', module)
             return (<CommandDescription commandPrototype={noParams}/>);
         }
     )
-
     .add('one param', () => {
             return (<CommandDescription commandPrototype={oneParams}/>);
         }
@@ -41,4 +40,3 @@ storiesOf('CommandDescription', module)
             return (<CommandDescription commandPrototype={twoParams}/>);
         }
     );
-;

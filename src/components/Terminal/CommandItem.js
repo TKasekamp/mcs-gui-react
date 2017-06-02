@@ -17,6 +17,7 @@ class CommandItem extends Component {
         this.state.collapsed ? this.setState({collapsed: false}) : this.setState({collapsed: true});
     }
 
+    // TODO move away
     getCalloutClass() {
         switch (this.props.command.status) {
             case ('IN_FLIGHT'):
@@ -24,7 +25,7 @@ class CommandItem extends Component {
             case ('FAILED'):
                 return 'callout-danger';
             case ('RESPONSE_RECEIVED'):
-                return 'callout-success'
+                return 'callout-success';
             default:
                 return 'callout-primary';
         }
@@ -42,7 +43,7 @@ class CommandItem extends Component {
         }
 
         const calloutClass = this.getCalloutClass();
-        return <div className={"list-group-item callout " +calloutClass}>
+        return <div className={'list-group-item callout ' + calloutClass}>
             <CommandHeader submitTime={this.props.command.submitTime} status={this.props.command.status}
                            commandString={this.props.command.commandString}
                            collapsed={this.state.collapsed}
@@ -50,7 +51,7 @@ class CommandItem extends Component {
             <CommandResponse responseString={this.props.command.responseString}
                              responseTime={this.props.command.responseTime}/>
             {otherData}
-        </div>
+        </div>;
     }
 }
 

@@ -23,7 +23,9 @@ const commandsWaiting = [
         submitTime: '2017-06-01T21:12:55.8575978Z',
         status: 'RESPONSE_RECEIVED',
         responseTime: '2017-06-01T21:12:55.8575978Z',
-        responseString: 'What if the response \ncontains many lines of text that can be at times very long? \nHow does it display that?',
+        responseString: 'What if the response \ncontains many lines of text that can be at times very long? ' +
+        '\nHow does it display that?' +
+        'And here is a very long line just because I want to see it wrap around, if possible. dfsgsgsgsfsgsdfsdfsdfsd',
         priority: 'HIGH',
         obcsSchedule: 'NOW',
         mcsSchedule: 'NOW'

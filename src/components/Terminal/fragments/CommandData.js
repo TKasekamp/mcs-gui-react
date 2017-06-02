@@ -5,7 +5,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const CommandData = (props) => {
-
     return <div className="col-3">
         <div className="row">
             <label className="col-12 text-uppercase small font-weight-bold">Command data</label>
@@ -28,7 +27,7 @@ const CommandData = (props) => {
                 {props.priority}
             </div>
         </div>
-    </div>
+    </div>;
 };
 
 CommandData.propTypes = {

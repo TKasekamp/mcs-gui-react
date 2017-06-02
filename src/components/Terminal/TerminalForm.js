@@ -34,12 +34,12 @@ class TerminalForm extends Component {
             priority: this.state.priority,
             mcsSchedule: this.state.mcsSchedule
         });
-        this.setState({commandPrototype: ''})
+        this.setState({commandPrototype: ''});
     }
 
     // TODO move to reducer
     onSuggestionChange(id) {
-        this.setState({commandPrototype: this.props.commandPrototypes.filter(c => c.id === id)[0]})
+        this.setState({commandPrototype: this.props.commandPrototypes.filter((c) => c.id === id)[0]});
     }
 
     render() {
@@ -49,7 +49,7 @@ class TerminalForm extends Component {
                 <div className="form-group col-12">
                     <CommandDescription commandPrototype={this.state.commandPrototype}/>
                 </div>
-            </div>
+            </div>;
         }
 
         return (

@@ -16,14 +16,15 @@ const CommandResponse = (props) => {
 
     return <div className="row">
         <div className="col-8">
-            <SyntaxHighlighter language='python' style={xcode} customStyle={{marginBottom: '0', padding: '0'}}>{message}</SyntaxHighlighter>
+            <SyntaxHighlighter language='python' style={xcode}
+                               customStyle={{marginBottom: '0', padding: '0'}}>{message}</SyntaxHighlighter>
         </div>
 
         <div className="col-4">
             <small className="text-muted text-uppercase mr-1">Response time</small>
             <small>{rTime}</small>
         </div>
-    </div>
+    </div>;
 };
 
 CommandResponse.propTypes = {

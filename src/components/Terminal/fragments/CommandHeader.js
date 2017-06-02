@@ -12,7 +12,9 @@ registerLanguage('python', python);
 const CommandHeader = (props) => {
     return <div className="row">
         <div className="col-6">
-            <SyntaxHighlighter language='python' style={xcode} customStyle={{marginBottom: '0', padding: '0'}}>{props.commandString}</SyntaxHighlighter></div>
+            <SyntaxHighlighter language='python' style={xcode}
+                               customStyle={{marginBottom: '0', padding: '0'}}>{props.commandString}</SyntaxHighlighter>
+        </div>
         <div className="col-2">
             <small className="text-muted text-uppercase mr-1">Status</small>
             <small>{props.status}</small>
@@ -29,7 +31,7 @@ const CommandHeader = (props) => {
                 <span className="switch-handle"/>
             </label>
         </div>
-    </div>
+    </div>;
 };
 
 CommandHeader.propTypes = {
