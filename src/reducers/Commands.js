@@ -52,7 +52,8 @@ const commands = (state = initialState, action) => {
                     mcsSchedule: action.payload.mcsSchedule,
                     obcsSchedule: action.payload.obcsSchedule,
                     status: IN_FLIGHT,
-                    userId: action.payload.userId
+                    userId: action.payload.userId,
+                    responseString: ''
                 })
             };
 
