@@ -24,6 +24,10 @@ class TerminalView extends Component {
                                 TERMINAL README
                             </div>
                             <div className="card-block">
+                                <div className="alert alert-danger" role="alert">
+                                    <strong>Warning</strong> Due to Heroku limitations, the Websocket connection will
+                                    time out in 55 seconds of last usage. So don't wait too long to think of a command :)
+                                </div>
                                 <p>This is a prototype of the command terminal. It is based on the ESTCube-1 commands
                                     and their syntax.</p>
                                 <p>The commands are sent to a dummy server that will respond via Websocket when response
