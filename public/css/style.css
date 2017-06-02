@@ -8950,6 +8950,9 @@ hr.transparent {
 .react-autosuggest__suggestion--focused .highlight {
   color: #120000; }
 
+.react-autosuggest__suggestion--highlighted {
+  background-color: #dce8ff; }
+
 .suggestionItem span:after {
   content: ', '; }
 

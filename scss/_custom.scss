@@ -40,6 +40,7 @@
   border-top: 1px solid #ddd;
 }
 
+// POSSIBLY UNUSED
 .react-autosuggest__suggestion--focused {
   background-color: #0C7EAF;
   color: #fff;
@@ -50,9 +51,13 @@
   align-items: center;
   background-repeat: no-repeat;
 }
-
+// POSSIBLY UNUSED
 .react-autosuggest__suggestion--focused .highlight {
   color: #120000;
+}
+
+.react-autosuggest__suggestion--highlighted {
+  background-color: #dce8ff;
 }
 
 // Suggestion item CSS. To be moved
