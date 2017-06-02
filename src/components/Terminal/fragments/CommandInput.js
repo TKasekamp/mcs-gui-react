@@ -102,7 +102,7 @@ class CommandInput extends Component {
         const inputProps = {
             placeholder: 'Type in command',
             value,
-            onChange: this.onChange,
+            onChange: this.onChange.bind(this),
             onKeyPress: this.handleKeyPress.bind(this)
         };
 
@@ -110,9 +110,9 @@ class CommandInput extends Component {
         return (
             <Autosuggest
                 suggestions={suggestions}
-                onSuggestionsFetchRequested={this.onSuggestionsFetchRequested}
-                onSuggestionSelected={this.onSuggestionSelected}
-                onSuggestionsClearRequested={this.onSuggestionsClearRequested}
+                onSuggestionsFetchRequested={this.onSuggestionsFetchRequested.bind(this)}
+                onSuggestionSelected={this.onSuggestionSelected.bind(this)}
+                onSuggestionsClearRequested={this.onSuggestionsClearRequested.bind(this)}
                 getSuggestionValue={getSuggestionValue}
                 renderSuggestion={renderSuggestion}
                 inputProps={inputProps}
