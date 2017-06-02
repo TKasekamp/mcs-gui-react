@@ -3,27 +3,11 @@
  */
 import React from 'react';
 import PropTypes from 'prop-types';
+import CommandParameterDescription from './CommandParameterDescription';
 
 const CommandDescription = (props) => {
     const params = props.commandPrototype.parameters.map((p) => {
-        return <div className="row" key={p.name}>
-            <div className="col-2">
-                <small className="text-uppercase text-muted mr-2">name</small>
-                {p.name}
-            </div>
-            <div className="col-2">
-                <small className="text-uppercase text-muted mr-2">type</small>
-                {p.type}
-            </div>
-            <div className="col-2">
-                <small className="text-uppercase text-muted mr-2">default</small>
-                {p.default}
-            </div>
-            <div className="col-6">
-                <small className="text-uppercase text-muted mr-2">description</small>
-                {p.description}
-            </div>
-        </div>
+        return <CommandParameterDescription key={p.name} parameter={p}/>;
     });
     const subs = props.commandPrototype.subsystems.map((s) => {
         return <span className="badge badge-danger mr-2" key={s}>{s}</span>;
@@ -44,7 +28,7 @@ const CommandDescription = (props) => {
             </div>
         </div>
         {params}
-    </div>
+    </div>;
 };
 
 CommandDescription.propTypes = {
