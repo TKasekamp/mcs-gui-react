@@ -8935,6 +8935,9 @@ hr.transparent {
   position: absolute;
   z-index: 2; }
 
+.react-autosuggest__suggestion {
+  padding: 0.5rem 0.75rem; }
+
 .react-autosuggest__suggestion:not(:first-child) {
   border-top: 1px solid #ddd; }
 
