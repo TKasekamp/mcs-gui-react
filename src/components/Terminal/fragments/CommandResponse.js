@@ -16,7 +16,7 @@ const CommandResponse = (props) => {
 
     return <div className="row">
         <div className="col-8">
-            <SyntaxHighlighter language='python' style={xcode}>{message}</SyntaxHighlighter>
+            <SyntaxHighlighter language='python' style={xcode} customStyle={{marginBottom: '0'}}>{message}</SyntaxHighlighter>
         </div>
 
         <div className="col-4">
