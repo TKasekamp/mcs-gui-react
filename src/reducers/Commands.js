@@ -55,9 +55,14 @@ const handleTooFastConnection = (commands, action) => {
         }
     });
 
+    if (foundExistingCommand) {
+        commands = commands.filter((command) =>
+            !(command.id === action.payload.localId)
+        )
+    }
     if (!foundExistingCommand) {
         commands = commands.map((command) => {
-            if (command.id === (action.payload.localId || action.payload.obj.id)) {
+            if (command.id === action.payload.localId) {
                 return {
                     ...command,
                     id: action.payload.obj.id,
