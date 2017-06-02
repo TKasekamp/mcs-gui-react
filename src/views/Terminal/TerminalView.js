@@ -64,6 +64,7 @@ class TerminalView extends Component {
                                 <p>A setting can be added to enable or disable the command description helper text. This
                                     is because an experienced operator would remember them all and then the text would
                                     be just clutter.</p>
+                                <p>Calculate command latency by doing responseTime - submitTime?</p>
                             </div>
                         </div>
                     </div>
