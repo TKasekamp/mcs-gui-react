@@ -19,6 +19,57 @@ class TerminalView extends Component {
             <div>
                 <div className="row">
                     <div className="col-lg-12">
+                        <div className="card">
+                            <div className="card-header">
+                                TERMINAL README
+                            </div>
+                            <div className="card-block">
+                                <p>This is a prototype of the command terminal. It is based on the ESTCube-1 commands
+                                    and their syntax.</p>
+                                <p>The commands are sent to a dummy server that will respond via Websocket when response
+                                    has been received. The time delays are deliberate and done with <code>Thread.sleep(3000)</code>
+                                </p>
+                                <h3>Features</h3>
+                                <p>All form inputs work</p>
+                                <p>Start typing the start of the command. Select command with <kbd>up and down</kbd>
+                                    keys. Press <kbd>Enter</kbd> to confirm selection. Press <kbd>Enter</kbd> to send
+                                    command to server.The command
+                                    terminal features three commands with autocomplete. </p>
+                                <ul>
+                                    <li>ping</li>
+                                    <li>pong</li>
+                                    <li>ifimg</li>
+                                </ul>
+                                <p>Description text when selecting one of the above commands</p>
+                                <p>Expand command response with the switch at the side. All other metadata will be
+                                    hidden away like that.</p>
+                                <p>The autocomplete will populate the input with default values if they are present</p>
+                                <p>Card color change when command status changes</p>
+                                <p>Terminal scroll to bottom when there are too many commands</p>
+                                <p>Python syntax highlihting, done with <a
+                                    href="https://www.npmjs.com/package/react-syntax-highlighter">react-syntax-highlighter</a>,
+                                    style xcode.
+                                </p>
+                                <h3>Possible improvements</h3>
+                                <p>The autocomplete regex only searches at start of string. Probably need to search all.
+                                    Maybe even description, parameter names?</p>
+                                <p>The CSS is basic. The labels are too grey and there's too much white space.</p>
+                                <p>If the subsystems can agree upon colors, the commands can be highlighted like <span
+                                    className="badge badge-default">AOCS</span>
+                                    <span className="badge badge-primary">COM</span>
+                                    <span className="badge badge-success">EPS</span>
+                                    <span className="badge badge-info">CAM</span>
+                                    <span className="badge badge-warning">ST</span>
+                                    <span className="badge badge-danger">OBCS</span></p>
+                                <p>A setting can be added to enable or disable the command description helper text. This
+                                    is because an experienced operator would remember them all and then the text would
+                                    be just clutter.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div className="row">
+                    <div className="col-lg-12">
                         <TerminalCard commands={this.props.commands} onSubmit={this.props.onSubmit}/>
                     </div>
                 </div>
