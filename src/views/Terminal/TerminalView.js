@@ -26,7 +26,8 @@ class TerminalView extends Component {
                             <div className="card-block">
                                 <div className="alert alert-danger" role="alert">
                                     <strong>Warning</strong> Due to Heroku limitations, the Websocket connection will
-                                    time out in 55 seconds of last usage. So don't wait too long to think of a command :)
+                                    time out in 55 seconds of last usage. So don't wait too long to think of a command
+                                    :)
                                 </div>
                                 <p>This is a prototype of the command terminal. It is based on the ESTCube-1 commands
                                     and their syntax.</p>
@@ -44,6 +45,8 @@ class TerminalView extends Component {
                                     <li>pong</li>
                                     <li>ifimg</li>
                                 </ul>
+                                <p>Special feature! Submit command <code>a</code> to bypass the normal <code>Thread.sleep</code>
+                                    times. This is the maximum performance of the current GUI and server combo</p>
                                 <p>Description text when selecting one of the above commands</p>
                                 <p>Expand command response with the switch at the side. All other metadata will be
                                     hidden away like that.</p>

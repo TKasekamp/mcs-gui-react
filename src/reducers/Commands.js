@@ -40,6 +40,43 @@ const handleMessageReceived = (commands, action) => {
     return commands;
 };
 
+// There may be a case where the websockt MESSSAGE_RECEIVED reaches us earlier than COMMAND_SUCCEEDED.
+// This method do some ID checks to solve hash collision.
+const handleTooFastConnection = (commands, action) => {
+    // Checking if Websocket message reached first.
+    // All info already here
+    let foundExistingCommand = false;
+    commands = commands.map((command) => {
+        if (command.id === action.payload.obj.id) {
+            foundExistingCommand = true;
+            return command;
+        } else {
+            return command;
+        }
+    });
+
+    if (!foundExistingCommand) {
+        commands = commands.map((command) => {
+            if (command.id === (action.payload.localId || action.payload.obj.id)) {
+                return {
+                    ...command,
+                    id: action.payload.obj.id,
+                    status: action.payload.obj.status,
+                    commandString: action.payload.obj.commandString,
+                    priority: action.payload.obj.priority,
+                    mcsSchedule: action.payload.obj.mcsSchedule,
+                    obcsSchedule: action.payload.obj.obcsSchedule,
+                    userId: action.payload.obj.userId,
+                    submitTime: action.payload.obj.submitTime,
+                };
+            } else {
+                return command;
+            }
+        });
+    }
+    return commands;
+};
+
 const commands = (state = initialState, action) => {
     switch (action.type) {
         case COMMAND_SUBMITTED:
@@ -58,23 +95,7 @@ const commands = (state = initialState, action) => {
             };
 
         case COMMAND_SUCCEEDED: {
-            const commands = state.commands.map((command) => {
-                if (command.id === action.payload.localId) {
-                    return {
-                        ...command,
-                        id: action.payload.obj.id,
-                        status: action.payload.obj.status,
-                        commandString: action.payload.obj.commandString,
-                        priority: action.payload.obj.priority,
-                        mcsSchedule: action.payload.obj.mcsSchedule,
-                        obcsSchedule: action.payload.obj.obcsSchedule,
-                        userId: action.payload.obj.userId,
-                        submitTime: action.payload.obj.submitTime,
-                    };
-                } else {
-                    return command;
-                }
-            });
+            const commands = handleTooFastConnection(state.commands, action);
 
             return {...state, commands};
         }
