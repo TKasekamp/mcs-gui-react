@@ -7,7 +7,7 @@ import PropTypes from 'prop-types';
 const SuggestionItem = (props) => {
     const params = props.parameters.map((p) => {
         return <span key={p.name}>
-            <small className="text-muted">{p.name}:</small>
+            <small className="text-muted mr-1">{p.name}:</small>
             {p.type}</span>
     });
     return <div >
