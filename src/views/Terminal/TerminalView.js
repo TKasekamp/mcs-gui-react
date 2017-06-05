@@ -45,6 +45,7 @@ class TerminalView extends Component {
                                     <li>ping</li>
                                     <li>pong</li>
                                     <li>ifimg</li>
+                                    <li>setreel - restricted command</li>
                                 </ul>
                                 <p>Special feature! Submit command <code>a</code> to bypass the normal
                                     <code>Thread.sleep</code>
@@ -60,6 +61,7 @@ class TerminalView extends Component {
                                     react-syntax-highlighter</a>,
                                     style xcode.
                                 </p>
+                                <p>Restricted command warning</p>
                                 <h3>Possible improvements</h3>
                                 <p>The autocomplete regex only searches at start of string. Probably need to search all.
                                     Maybe even description, parameter names?</p>

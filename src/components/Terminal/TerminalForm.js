@@ -99,6 +99,7 @@ TerminalForm.propTypes = {
         id: PropTypes.number.isRequired,
         name: PropTypes.string.isRequired,
         description: PropTypes.string.isRequired,
+        restricted: PropTypes.bool.isRequired,
         subsystems: PropTypes.arrayOf(PropTypes.string).isRequired,
         parameters: PropTypes.arrayOf(PropTypes.shape({
             name: PropTypes.string.isRequired,

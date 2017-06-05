@@ -12,8 +12,11 @@ const CommandDescription = (props) => {
     const subs = props.commandPrototype.subsystems.map((s) => {
         return <span className="badge badge-danger mr-2" key={s}>{s}</span>;
     });
+    const restrict = props.commandPrototype.restricted ?
+        <div className="col-12 bg-danger text-white">This command is restricted!</div> : '';
     return <div >
         <div className="row">
+            {restrict}
             <div className="col-6">
                 <small className="text-uppercase text-muted mr-2">Description</small>
                 {props.commandPrototype.description}
@@ -36,6 +39,7 @@ CommandDescription.propTypes = {
         id: PropTypes.number.isRequired,
         name: PropTypes.string.isRequired,
         description: PropTypes.string.isRequired,
+        restricted: PropTypes.bool.isRequired,
         subsystems: PropTypes.arrayOf(PropTypes.string).isRequired,
         parameters: PropTypes.arrayOf(PropTypes.shape({
             name: PropTypes.string.isRequired,

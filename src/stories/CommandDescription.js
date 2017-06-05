@@ -7,6 +7,7 @@ const noParams = {
     name: 'ping',
     subsystems: ['OBCS', 'COM', 'EPS', 'CAM'],
     description: 'This does a ping',
+    restricted: false,
     parameters: []
 };
 
@@ -15,6 +16,7 @@ const oneParams = {
     name: 'ping',
     subsystems: ['OBCS', 'COM', 'EPS', 'CAM'],
     description: 'This does a ping',
+    restricted: false,
     parameters: [{name: 'timeStamp', description: 'Time when ping was sent', type: 'uint32', default: 0}]
 };
 
@@ -23,8 +25,18 @@ const twoParams = {
     name: 'ping',
     subsystems: ['OBCS', 'COM', 'EPS', 'CAM'],
     description: 'This does a ping',
+    restricted: false,
     parameters: [{name: 'timeStamp', description: 'Time when ping was sent', type: 'uint32', default: 0},
         {name: 'killSwitch', description: 'Kills everything', type: 'boolean', default: false}]
+};
+
+const restricted = {
+    id: 0,
+    name: 'ping',
+    subsystems: ['OBCS', 'COM', 'EPS', 'CAM'],
+    description: 'This does a ping',
+    restricted: true,
+    parameters: [{name: 'timeStamp', description: 'Time when ping was sent', type: 'uint32', default: 0}]
 };
 
 storiesOf('CommandDescription', module)
@@ -38,5 +50,9 @@ storiesOf('CommandDescription', module)
     )
     .add('two params', () => {
             return (<CommandDescription commandPrototype={twoParams}/>);
+        }
+    )
+    .add('restricted', () => {
+            return (<CommandDescription commandPrototype={restricted}/>);
         }
     );
