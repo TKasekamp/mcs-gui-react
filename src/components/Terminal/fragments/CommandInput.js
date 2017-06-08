@@ -15,12 +15,12 @@ const getSuggestionValue = (suggestion) => {
         return p.default;
     }).join(' , ');
 
-    return `${suggestion.subsystems[0]}.${suggestion.name}(${params})`;
+    return `${suggestion.subsystem}.${suggestion.name}(${params})`;
 };
 
 function renderSuggestion(suggestion) {
     return (
-        <SuggestionItem subsystems={suggestion.subsystems} name={suggestion.name} id={suggestion.id}
+        <SuggestionItem subsystem={suggestion.subsystem} name={suggestion.name} id={suggestion.id}
                         parameters={suggestion.parameters}/>
     );
 }
@@ -90,9 +90,26 @@ class CommandInput extends Component {
         const inputLength = inputValue.length;
 
         // TODO improve regex
-        return inputLength === 0 ? [] : this.props.commandPrototypes.filter((command) =>
+        return inputLength === 0 ? [] : this.mapEverySubsystem(inputLength, inputValue);
+    }
+
+    mapEverySubsystem(inputLength, inputValue) {
+        const filteredCommands = this.props.commandPrototypes.filter((command) =>
             command.name.toLowerCase().slice(0, inputLength) === inputValue
         );
+        const mappedCommands = filteredCommands.map((command) => {
+            return command.subsystems.map((subsystem) => {
+                return {
+                    ...command, subsystem: subsystem
+                }
+            });
+        });
+
+        const flatten = list => list.reduce(
+            (a, b) => a.concat(Array.isArray(b) ? flatten(b) : b), []
+        );
+
+        return flatten(mappedCommands);
     }
 
     render() {

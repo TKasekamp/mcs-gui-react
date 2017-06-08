@@ -4,13 +4,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import CommandParameterDescription from './CommandParameterDescription';
+import {getBadgeClass} from '../../../logic/Terminal';
 
 const CommandDescription = (props) => {
     const params = props.commandPrototype.parameters.map((p) => {
         return <CommandParameterDescription key={p.name} parameter={p}/>;
     });
     const subs = props.commandPrototype.subsystems.map((s) => {
-        return <span className="badge badge-danger mr-2" key={s}>{s}</span>;
+        const badgeClass = getBadgeClass(s);
+        return <span className={'badge mr-2 ' + badgeClass} key={s}>{s}</span>;
     });
     const restrict = props.commandPrototype.restricted ?
         <div className="col-12 bg-danger text-white">This command is restricted!</div> : '';

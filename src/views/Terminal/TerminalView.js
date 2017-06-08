@@ -19,6 +19,11 @@ class TerminalView extends Component {
             <div>
                 <div className="row">
                     <div className="col-lg-12">
+                        <TerminalCard commands={this.props.commands} onSubmit={this.props.onSubmit}/>
+                    </div>
+                </div>
+                <div className="row">
+                    <div className="col-lg-12">
                         <div className="card">
                             <div className="card-header">
                                 TERMINAL README
@@ -62,6 +67,7 @@ class TerminalView extends Component {
                                     style xcode.
                                 </p>
                                 <p>Restricted command warning</p>
+                                <p>Commands colored by subsystem</p>
                                 <h3>Possible improvements</h3>
                                 <p>The autocomplete regex only searches at start of string. Probably need to search all.
                                     Maybe even description, parameter names?</p>
@@ -77,15 +83,22 @@ class TerminalView extends Component {
                                     is because an experienced operator would remember them all and then the text would
                                     be just clutter.</p>
                                 <p>Calculate command latency by doing responseTime - submitTime?</p>
+                                <br/>
+                                <p>OBCS schedule parameter could be added to the end of the command string, after an
+                                    @</p>
+                                <p>Able to copy multiple commands-responses without selecting unnecessary HTML</p>
+                                <p>Confirmation button for dangerous commands. Ability to override this extra step.</p>
+                                <p>Lock terminal for one user for a period of time. Probably a countdown button with
+                                    period of 5-10-15 minutes? No other user can send commands at that time.</p>
+                                <p>Simplified version of the terminal that could be used on every page. </p>
+                                <p>Scroll up-down in input to select previously used commands</p>
+                                <p>Previously used commands available in autocomplete. Requires a way to switch between
+                                    normal and previously used autocomplete to avoid clutter.</p>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div className="row">
-                    <div className="col-lg-12">
-                        <TerminalCard commands={this.props.commands} onSubmit={this.props.onSubmit}/>
-                    </div>
-                </div>
+
             </div>
         );
     }
