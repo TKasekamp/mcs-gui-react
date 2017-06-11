@@ -35,7 +35,7 @@ class CommandItem extends Component {
         if (!this.state.collapsed) {
             otherData = <div className="row">
                 <CommandData userId={this.props.command.userId} id={this.props.command.id}
-                             priority={this.props.command.priority}/>
+                             priority={this.props.command.priority} prototypeId={this.props.command.prototypeId}/>
             </div>;
         }
 
@@ -56,6 +56,7 @@ CommandItem.propTypes = {
     command: PropTypes.shape({
         id: PropTypes.string.isRequired,
         body: PropTypes.string.isRequired,
+        prototypeId: PropTypes.number.isRequired,
         submitTime: PropTypes.string,
         responseTime: PropTypes.string,
         userId: PropTypes.string.isRequired,

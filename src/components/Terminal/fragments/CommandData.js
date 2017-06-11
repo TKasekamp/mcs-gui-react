@@ -27,13 +27,20 @@ const CommandData = (props) => {
                 {props.priority}
             </div>
         </div>
+        <div className="row">
+            <label className="col-4 text-uppercase small text-muted">Prototype ID</label>
+            <div className="col-8 small" style={{padding: 'initial'}}>
+                {props.prototypeId}
+            </div>
+        </div>
     </div>;
 };
 
 CommandData.propTypes = {
     id: PropTypes.string.isRequired,
     userId: PropTypes.string.isRequired,
-    priority: PropTypes.string.isRequired
+    priority: PropTypes.string.isRequired,
+    prototypeId: PropTypes.number.isRequired,
 };
 
 export default CommandData;

@@ -68,6 +68,7 @@ const handleTooFastConnection = (commands, action) => {
                     status: action.payload.obj.status,
                     body: action.payload.obj.body,
                     priority: action.payload.obj.priority,
+                    prototypeId: action.payload.obj.prototypeId,
                     userId: action.payload.obj.userId,
                     submitTime: action.payload.obj.submitTime,
                 };
@@ -89,6 +90,7 @@ const commands = (state = initialState, action) => {
                     body: action.payload.body,
                     priority: action.payload.priority,
                     status: IN_FLIGHT,
+                    prototypeId: action.payload.prototypeId,
                     userId: '',
                     responseString: ''
                 })
