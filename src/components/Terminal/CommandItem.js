@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import CommandHeader from './fragments/CommandHeader';
 import CommandResponse from './fragments/CommandResponse';
 import CommandData from './fragments/CommandData';
-import CommandSchedule from './fragments/CommandSchedule';
 
 class CommandItem extends Component {
     constructor() {
@@ -37,15 +36,13 @@ class CommandItem extends Component {
             otherData = <div className="row">
                 <CommandData userId={this.props.command.userId} id={this.props.command.id}
                              priority={this.props.command.priority}/>
-                <CommandSchedule obcsSchedule={this.props.command.obcsSchedule}
-                                 mcsSchedule={this.props.command.mcsSchedule}/>
             </div>;
         }
 
         const calloutClass = this.getCalloutClass();
         return <div className={'list-group-item callout ' + calloutClass}>
             <CommandHeader submitTime={this.props.command.submitTime} status={this.props.command.status}
-                           commandString={this.props.command.commandString}
+                           body={this.props.command.body}
                            collapsed={this.state.collapsed}
                            switchCollapsed={this.switchCollapseState}/>
             <CommandResponse responseString={this.props.command.responseString}
@@ -58,15 +55,13 @@ class CommandItem extends Component {
 CommandItem.propTypes = {
     command: PropTypes.shape({
         id: PropTypes.string.isRequired,
-        commandString: PropTypes.string.isRequired,
+        body: PropTypes.string.isRequired,
         submitTime: PropTypes.string,
         responseTime: PropTypes.string,
         userId: PropTypes.string.isRequired,
         status: PropTypes.string.isRequired,
         responseString: PropTypes.string,
-        priority: PropTypes.string.isRequired,
-        obcsSchedule: PropTypes.string.isRequired,
-        mcsSchedule: PropTypes.string.isRequired,
+        priority: PropTypes.string.isRequired
     }).isRequired
 };
 

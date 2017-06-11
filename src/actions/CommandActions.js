@@ -25,12 +25,9 @@ export const commandSubmitted = (obj) => (
     {
         type: COMMAND_SUBMITTED,
         payload: {
-            commandString: obj.commandString,
-            obcsSchedule: obj.obcsSchedule,
-            mcsSchedule: obj.mcsSchedule,
+            body: obj.body,
             priority: obj.priority,
-            localId: (commandId++).toString(),
-            userId: 'test-value'
+            localId: (commandId++).toString()
         }
     }
 );

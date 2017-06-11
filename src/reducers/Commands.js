@@ -66,10 +66,8 @@ const handleTooFastConnection = (commands, action) => {
                     ...command,
                     id: action.payload.obj.id,
                     status: action.payload.obj.status,
-                    commandString: action.payload.obj.commandString,
+                    body: action.payload.obj.body,
                     priority: action.payload.obj.priority,
-                    mcsSchedule: action.payload.obj.mcsSchedule,
-                    obcsSchedule: action.payload.obj.obcsSchedule,
                     userId: action.payload.obj.userId,
                     submitTime: action.payload.obj.submitTime,
                 };
@@ -88,12 +86,10 @@ const commands = (state = initialState, action) => {
                 ...state,
                 commands: state.commands.concat({
                     id: action.payload.localId,
-                    commandString: action.payload.commandString,
+                    body: action.payload.body,
                     priority: action.payload.priority,
-                    mcsSchedule: action.payload.mcsSchedule,
-                    obcsSchedule: action.payload.obcsSchedule,
                     status: IN_FLIGHT,
-                    userId: action.payload.userId,
+                    userId: '',
                     responseString: ''
                 })
             };

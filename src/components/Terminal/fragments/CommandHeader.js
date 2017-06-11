@@ -13,7 +13,7 @@ const CommandHeader = (props) => {
     return <div className="row">
         <div className="col-6">
             <SyntaxHighlighter language='python' style={xcode}
-                               customStyle={{marginBottom: '0', padding: '0'}}>{props.commandString}</SyntaxHighlighter>
+                               customStyle={{marginBottom: '0', padding: '0'}}>{props.body}</SyntaxHighlighter>
         </div>
         <div className="col-2">
             <small className="text-muted text-uppercase mr-1">Status</small>
@@ -35,7 +35,7 @@ const CommandHeader = (props) => {
 };
 
 CommandHeader.propTypes = {
-    commandString: PropTypes.string.isRequired,
+    body: PropTypes.string.isRequired,
     status: PropTypes.string.isRequired,
     submitTime: PropTypes.string,
     collapsed: PropTypes.bool.isRequired,

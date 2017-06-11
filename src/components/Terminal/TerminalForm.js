@@ -9,8 +9,6 @@ class TerminalForm extends Component {
 
         this.state = {
             priority: 'HIGH',
-            obcsSchedule: 'NOW',
-            mcsSchedule: 'NOW',
             commandPrototype: ''
         };
     }
@@ -19,20 +17,10 @@ class TerminalForm extends Component {
         this.setState({priority: event.target.value});
     }
 
-    handleObcsScheduleChange(event) {
-        this.setState({obcsSchedule: event.target.value});
-    }
-
-    handleMcsScheduleChange(event) {
-        this.setState({mcsSchedule: event.target.value});
-    }
-
     onSubmit(obj) {
         this.props.onSubmit({
-            commandString: obj.commandString,
-            obcsSchedule: this.state.obcsSchedule,
-            priority: this.state.priority,
-            mcsSchedule: this.state.mcsSchedule
+            body: obj.body,
+            priority: this.state.priority
         });
         this.setState({commandPrototype: ''});
     }
@@ -71,22 +59,6 @@ class TerminalForm extends Component {
                         <option>HIGH</option>
                         <option>MEDIUM</option>
                         <option>LOW</option>
-                    </select></div>
-                    <div className="form-group col-sm-3">
-                        <label>OBCS schedule</label><select className="form-control" id="obcsSchedule"
-                                                            value={this.state.obcsSchedule}
-                                                            onChange={this.handleObcsScheduleChange.bind(this)}>
-                        <option>NOW</option>
-                        <option>LATER</option>
-                        <option>NEVER</option>
-                    </select></div>
-                    <div className="form-group col-sm-3">
-                        <label>MCS schedule</label><select className="form-control" id="mcsSchedule"
-                                                           value={this.state.mcsSchedule}
-                                                           onChange={this.handleMcsScheduleChange.bind(this)}>
-                        <option>NOW</option>
-                        <option>LATER</option>
-                        <option>NEVER</option>
                     </select></div>
                 </div>
             </div>
