@@ -13,11 +13,11 @@ export const getPasses = () => (dispatch) => {
     );
 };
 
-export const submitCommand = ({localId, body, priority}) => (dispatch) => {
+export const submitCommand = ({localId, body, prototypeId, priority}) => (dispatch) => {
     jsonAjax(
         SERVER_URL + '/api/commands',
         'POST',
-        {body, priority},
+        {body, prototypeId, priority},
         (obj) => dispatch(commandSucceeded({localId, obj})),
         ({error} = {}) => dispatch(commandFailed({error}))
     );

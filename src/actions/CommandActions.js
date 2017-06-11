@@ -27,6 +27,7 @@ export const commandSubmitted = (obj) => (
         payload: {
             body: obj.body,
             priority: obj.priority,
+            prototypeId: obj.prototypeId,
             localId: (commandId++).toString()
         }
     }
