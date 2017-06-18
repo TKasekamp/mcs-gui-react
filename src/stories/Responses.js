@@ -3,6 +3,7 @@ import {storiesOf} from '@kadira/storybook';
 import PingResponse from '../components/Terminal/responses/PingResponse';
 import PongResponse from '../components/Terminal/responses/PongResponse';
 import PosResponse from '../components/Terminal/responses/PosResponse';
+import DefaultResponse from '../components/Terminal/responses/DefaultResponse';
 
 const ping = {
   timestamp: '2017-06-01T21:12:55.8575978Z'
@@ -28,6 +29,15 @@ storiesOf('Command Responses', module)
         <p>
           All command responses displayed here
         </p>
+
+        <h2>Default response</h2>
+          <div>
+          <p>Shown when given unknown response</p>
+            <h6>Example</h6>
+            <div>
+              <DefaultResponse body={ping}/>
+            </div>
+          </div>
 
         <h2>Ping</h2>
           <div>
