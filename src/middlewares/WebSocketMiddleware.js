@@ -1,8 +1,9 @@
 import {
+    commandUpdate,
     CONNECT_REQUESTED,
     connected,
     connectRefused,
-    DISCONNECT_REQUESTED,
+    DISCONNECT_REQUESTED, MESSAGE_RECEIVED,
     messageReceived
 } from '../actions/CommandActions';
 import {connect} from '../WebSocket';
@@ -21,6 +22,17 @@ const webSocketMiddleware = (store) => (next) => {
         } else if (action.type === DISCONNECT_REQUESTED) {
             connection.close();
         }
+        else if (action.type === MESSAGE_RECEIVED) {
+            switch(action.payload.type){
+                case 'COMMAND': {
+                    store.dispatch(commandUpdate(action.payload.object));
+                    break;
+                }
+                default:
+                    return;
+            }
+        }
+
         return next(action);
     };
 };

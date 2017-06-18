@@ -1,11 +1,11 @@
 import {
     COMMAND_SUBMITTED,
     COMMAND_SUCCEEDED,
+    COMMAND_UPDATE,
     CONNECT_REFUSED,
     CONNECT_REQUESTED,
     CONNECTED,
-    DISCONNECT_REQUESTED,
-    MESSAGE_RECEIVED
+    DISCONNECT_REQUESTED
 } from '../actions/CommandActions';
 
 const initialState = {
@@ -18,23 +18,23 @@ export const IN_FLIGHT = 'IN_FLIGHT';
 /* export const ACCEPTED = 'created';
  export const FAILED = 'failed';*/
 
-const handleMessageReceived = (commands, action) => {
+const handleMessageReceived = (commands, object) => {
     // Accepts messages from our terminal and any other
     let inList = false;
     commands = commands.map((command) => {
-        if (command.id === action.payload.id) {
+        if (command.id === object.id) {
             inList = true;
             return {
                 ...command,
-                response: action.payload.response,
-                status: action.payload.status
+                response: object.response,
+                status: object.status
             };
         } else {
             return command;
         }
     });
     if (!inList) {
-        commands = commands.concat(action.payload);
+        commands = commands.concat(object);
     }
     return commands;
 };
@@ -120,8 +120,8 @@ const commands = (state = initialState, action) => {
                 message: 'Connection refused! Those bastards!'
             };
 
-        case MESSAGE_RECEIVED:
-            return {...state, commands: handleMessageReceived(state.commands, action)};
+        case COMMAND_UPDATE:
+            return {...state, commands: handleMessageReceived(state.commands, action.payload)};
 
         case DISCONNECT_REQUESTED:
             return {

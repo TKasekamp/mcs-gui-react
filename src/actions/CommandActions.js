@@ -19,6 +19,9 @@ export const disconnectRequested = createPayloadForwardingAction(DISCONNECT_REQU
 export const MESSAGE_RECEIVED = 'MESSAGE_RECEIVED';
 export const messageReceived = createPayloadForwardingAction(MESSAGE_RECEIVED);
 
+export const COMMAND_UPDATE = 'COMMAND_UPDATE';
+export const commandUpdate = createPayloadForwardingAction(COMMAND_UPDATE);
+
 // COMMAND POST
 export const COMMAND_SUBMITTED = 'COMMAND_SUBMITTED';
 export const commandSubmitted = (obj) => (
