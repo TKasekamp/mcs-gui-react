@@ -9,7 +9,8 @@ const PingResponse = (props) => {
 
 PingResponse.propTypes = {
   body: PropTypes.shape({
-    timestamp: PropTypes.string.isRequired }).isRequired
+    timestamp: PropTypes.string.isRequired
+  }).isRequired
 };
 
 export default PingResponse;

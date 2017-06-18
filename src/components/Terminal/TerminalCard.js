@@ -38,7 +38,15 @@ const commandPrototypes = [{
         description: 'Sets reeling configuration.',
         restricted: true,
         parameters: [{name: 'speed', description: 'Reeling direction and speed.', type: 'int8'}]
-    }
+    },
+    {
+        id: 100,
+        name: 'getpos',
+        subsystems: ['OBCS'],
+        description: 'Requests for satellite position.',
+        restricted: false,
+        parameters: []
+    },
 ];
 const TerminalCard = (props) => {
     return (

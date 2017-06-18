@@ -51,6 +51,7 @@ class TerminalView extends Component {
                                     <li>pong</li>
                                     <li>ifimg</li>
                                     <li>setreel - restricted command</li>
+                                    <li>getpos</li>
                                 </ul>
                                 <p>Special feature! Submit command <code>a</code> to bypass the normal
                                     <code>Thread.sleep</code>
