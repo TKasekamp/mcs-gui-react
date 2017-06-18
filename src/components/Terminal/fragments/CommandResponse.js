@@ -3,11 +3,6 @@
  */
 import React from 'react';
 import PropTypes from 'prop-types';
-import SyntaxHighlighter, {registerLanguage} from 'react-syntax-highlighter/dist/light';
-import python from 'react-syntax-highlighter/dist/languages/python';
-import xcode from 'react-syntax-highlighter/dist/styles/xcode';
-
-registerLanguage('python', python);
 
 const CommandResponse = (props) => {
     const rTime = typeof props.responseTime !== 'undefined' ? props.responseTime : '';
@@ -16,8 +11,7 @@ const CommandResponse = (props) => {
 
     return <div className="row">
         <div className="col-8">
-            <SyntaxHighlighter language='python' style={xcode}
-                               customStyle={{marginBottom: '0', padding: '0'}}>{message}</SyntaxHighlighter>
+          {message}
         </div>
 
         <div className="col-4">
