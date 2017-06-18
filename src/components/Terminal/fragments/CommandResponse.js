@@ -3,11 +3,24 @@
  */
 import React from 'react';
 import PropTypes from 'prop-types';
+import {prototypeIds} from '../../../constants';
+import PingResponse from '../responses/PingResponse';
+import DefaultResponse from '../responses/DefaultResponse';
+
+const responseSwitch = (prototypeId, body) => {
+    switch (prototypeId) {
+      case prototypeIds.ping:
+        return <PingResponse body={body}/>;
+      default:
+        return <DefaultResponse body={body}/>;
+    }
+};
 
 const CommandResponse = (props) => {
     const rTime = typeof props.responseTime !== 'undefined' ? props.responseTime : '';
 
-    const message = props.responseString !== '' ? props.responseString : 'Waiting for response...';
+    const message = typeof props.body !== 'undefined'
+      ? responseSwitch(props.prototypeId, props.body) : 'Waiting for response...';
 
     return <div className="row">
         <div className="col-8">
@@ -22,7 +35,8 @@ const CommandResponse = (props) => {
 };
 
 CommandResponse.propTypes = {
-    responseString: PropTypes.string,
+    body: PropTypes.object,
+    prototypeId: PropTypes.number.isRequired,
     responseTime: PropTypes.string,
 };
 

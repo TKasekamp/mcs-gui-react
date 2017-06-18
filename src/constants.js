@@ -21,3 +21,11 @@ export const chooseServer = () => {
         WEBSOCKET_URL = `wss://${HEROKU_WEBSOCKET.host}/ws`;
     }
 };
+
+export const prototypeIds = {
+  ping: 0,
+  pong: 1,
+  ifimg: 16,
+  setreel: 81,
+  pos: 100
+};
