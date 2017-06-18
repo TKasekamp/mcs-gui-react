@@ -26,9 +26,8 @@ const handleMessageReceived = (commands, action) => {
             inList = true;
             return {
                 ...command,
-                responseString: action.payload.responseString,
-                status: action.payload.status,
-                responseTime: action.payload.responseTime,
+                response: action.payload.response,
+                status: action.payload.status
             };
         } else {
             return command;
@@ -92,7 +91,7 @@ const commands = (state = initialState, action) => {
                     status: IN_FLIGHT,
                     prototypeId: action.payload.prototypeId,
                     userId: '',
-                    responseString: ''
+                    response: {}
                 })
             };
 

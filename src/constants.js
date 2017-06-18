@@ -23,9 +23,9 @@ export const chooseServer = () => {
 };
 
 export const prototypeIds = {
-  ping: 0,
-  pong: 1,
-  ifimg: 16,
-  setreel: 81,
-  pos: 100
+  ping: 1,
+  pong: 2,
+  ifimg: 3,
+  setreel: 4,
+  pos: 5
 };

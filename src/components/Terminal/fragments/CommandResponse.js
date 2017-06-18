@@ -9,22 +9,22 @@ import DefaultResponse from '../responses/DefaultResponse';
 
 const responseSwitch = (prototypeId, body) => {
     switch (prototypeId) {
-      case prototypeIds.ping:
-        return <PingResponse body={body}/>;
-      default:
-        return <DefaultResponse body={body}/>;
+        case prototypeIds.ping:
+            return <PingResponse body={body}/>;
+        default:
+            return <DefaultResponse body={body}/>;
     }
 };
 
 const CommandResponse = (props) => {
-    const rTime = typeof props.responseTime !== 'undefined' ? props.responseTime : '';
+    const rTime = typeof props.response.responseTime !== 'undefined' ? props.response.responseTime : '';
 
-    const message = typeof props.body !== 'undefined'
-      ? responseSwitch(props.prototypeId, props.body) : 'Waiting for response...';
+    const message = typeof props.response.body !== 'undefined'
+        ? responseSwitch(props.prototypeId, props.response.body) : 'Waiting for response...';
 
     return <div className="row">
         <div className="col-8">
-          {message}
+            {message}
         </div>
 
         <div className="col-4">
@@ -35,9 +35,11 @@ const CommandResponse = (props) => {
 };
 
 CommandResponse.propTypes = {
-    body: PropTypes.object,
-    prototypeId: PropTypes.number.isRequired,
-    responseTime: PropTypes.string,
+    response: PropTypes.shape({
+        body: PropTypes.object,
+        responseTime: PropTypes.string,
+    }).isRequired,
+    prototypeId: PropTypes.number,
 };
 
 export default CommandResponse;

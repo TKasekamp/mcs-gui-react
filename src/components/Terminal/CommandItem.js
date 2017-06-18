@@ -45,8 +45,7 @@ class CommandItem extends Component {
                            body={this.props.command.body}
                            collapsed={this.state.collapsed}
                            switchCollapsed={this.switchCollapseState}/>
-            <CommandResponse responseString={this.props.command.responseString}
-                             responseTime={this.props.command.responseTime}/>
+            <CommandResponse response={this.props.command.response} prototypeId={this.props.command.prototypeId}/>
             {otherData}
         </div>;
     }
@@ -56,12 +55,14 @@ CommandItem.propTypes = {
     command: PropTypes.shape({
         id: PropTypes.string.isRequired,
         body: PropTypes.string.isRequired,
-        prototypeId: PropTypes.number.isRequired,
+        prototypeId: PropTypes.number,
         submitTime: PropTypes.string,
-        responseTime: PropTypes.string,
         userId: PropTypes.string.isRequired,
         status: PropTypes.string.isRequired,
-        responseString: PropTypes.string,
+        response: PropTypes.shape({
+            body: PropTypes.object,
+            responseTime: PropTypes.string,
+        }),
         priority: PropTypes.string.isRequired
     }).isRequired
 };

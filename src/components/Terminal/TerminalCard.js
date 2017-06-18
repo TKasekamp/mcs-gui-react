@@ -4,7 +4,7 @@ import TerminalForm from './TerminalForm';
 import CommandList from './CommandList';
 
 const commandPrototypes = [{
-    id: 0,
+    id: 1,
     name: 'ping',
     subsystems: ['OBCS', 'COM', 'EPS', 'CAM'],
     description: 'This does a ping',
@@ -12,7 +12,7 @@ const commandPrototypes = [{
     parameters: [{name: 'timeStamp', description: 'Time when ping was sent', type: 'uint32', default: 0}]
 },
     {
-        id: 1,
+        id: 2,
         name: 'pong',
         subsystems: ['OBCS', 'COM', 'EPS', 'CAM'],
         description: 'This does a pong',
@@ -20,7 +20,7 @@ const commandPrototypes = [{
         parameters: [{name: 'timeStamp', description: 'Time when pong was sent', type: 'uint32', default: 0}]
     },
     {
-        id: 16,
+        id: 3,
         name: 'ifimg',
         subsystems: ['OBCS', 'CAM'],
         restricted: false,
@@ -32,7 +32,7 @@ const commandPrototypes = [{
         ]
     },
     {
-        id: 81,
+        id: 4,
         name: 'setreel',
         subsystems: ['OBCS'],
         description: 'Sets reeling configuration.',
@@ -40,7 +40,7 @@ const commandPrototypes = [{
         parameters: [{name: 'speed', description: 'Reeling direction and speed.', type: 'int8'}]
     },
     {
-        id: 100,
+        id: 5,
         name: 'getpos',
         subsystems: ['OBCS'],
         description: 'Requests for satellite position.',
