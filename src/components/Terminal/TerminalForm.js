@@ -18,7 +18,6 @@ class TerminalForm extends Component {
     }
 
     onSubmit(obj) {
-
         this.props.onSubmit({
             body: obj.body,
             priority: this.state.priority,

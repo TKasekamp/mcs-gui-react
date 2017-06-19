@@ -101,11 +101,11 @@ class CommandInput extends Component {
             return command.subsystems.map((subsystem) => {
                 return {
                     ...command, subsystem: subsystem
-                }
+                };
             });
         });
 
-        const flatten = list => list.reduce(
+        const flatten = (list) => list.reduce(
             (a, b) => a.concat(Array.isArray(b) ? flatten(b) : b), []
         );
 

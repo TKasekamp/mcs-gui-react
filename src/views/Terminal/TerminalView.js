@@ -3,6 +3,7 @@ import TerminalCard from '../../components/Terminal/TerminalCard';
 import {connect} from 'react-redux';
 import {commandSubmitted, connectRequested} from '../../actions/CommandActions';
 import PropTypes from 'prop-types';
+import {prototypesRequested} from '../../actions/PrototypeActions';
 
 class TerminalView extends Component {
     componentDidMount() {
@@ -10,6 +11,7 @@ class TerminalView extends Component {
         // TODO move this check to somewhere else
         if (!this.props.connected) {
             this.props.onConnect();
+            this.props.onRequestPrototypes();
         }
     }
 
@@ -19,7 +21,8 @@ class TerminalView extends Component {
             <div>
                 <div className="row">
                     <div className="col-lg-12">
-                        <TerminalCard commands={this.props.commands} onSubmit={this.props.onSubmit}/>
+                        <TerminalCard commands={this.props.commands} onSubmit={this.props.onSubmit}
+                                      commandPrototypes={this.props.commandPrototypes}/>
                     </div>
                 </div>
                 <div className="row">
@@ -115,17 +118,33 @@ TerminalView.propTypes = {
     })).isRequired,
     onSubmit: PropTypes.func.isRequired,
     onConnect: PropTypes.func.isRequired,
-    connected: PropTypes.bool.isRequired
+    connected: PropTypes.bool.isRequired,
+    onRequestPrototypes: PropTypes.bool.isRequired,
+    commandPrototypes: PropTypes.arrayOf(PropTypes.shape({
+        id: PropTypes.number.isRequired,
+        name: PropTypes.string.isRequired,
+        description: PropTypes.string.isRequired,
+        restricted: PropTypes.bool.isRequired,
+        subsystems: PropTypes.arrayOf(PropTypes.string).isRequired,
+        parameters: PropTypes.arrayOf(PropTypes.shape({
+            name: PropTypes.string.isRequired,
+            description: PropTypes.string.isRequired,
+            type: PropTypes.string.isRequired,
+            default: PropTypes.any,
+        })).isRequired
+    })).isRequired
 };
 
 const mapStateToProps = (state) => ({
     commands: state.commands.commands,
-    connected: state.commands.connected
+    connected: state.commands.connected,
+    commandPrototypes: state.prototypes.prototypes
 });
 
 const mapDispatchToProps = (dispatch) => ({
     onConnect: () => dispatch(connectRequested()),
     onSubmit: (obj) => dispatch(commandSubmitted(obj)),
+    onRequestPrototypes: () => dispatch(prototypesRequested())
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(TerminalView);

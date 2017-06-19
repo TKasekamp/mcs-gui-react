@@ -21,9 +21,8 @@ const webSocketMiddleware = (store) => (next) => {
             });
         } else if (action.type === DISCONNECT_REQUESTED) {
             connection.close();
-        }
-        else if (action.type === MESSAGE_RECEIVED) {
-            switch(action.payload.type){
+        } else if (action.type === MESSAGE_RECEIVED) {
+            switch(action.payload.type) {
                 case 'COMMAND': {
                     store.dispatch(commandUpdate(action.payload.object));
                     break;

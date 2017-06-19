@@ -1,9 +1,11 @@
 import {PASSES_REQUESTED} from '../actions/index';
-import {getPasses, submitCommand} from '../actions/ServerActions';
+import {getPasses, getPrototypes, submitCommand} from '../actions/ServerActions';
 import {COMMAND_SUBMITTED} from '../actions/CommandActions';
+import {PROTOTYPES_REQUESTED} from '../actions/PrototypeActions';
 
 const ACTION_TYPE_TO_SERVER_ACTION = {
     [PASSES_REQUESTED]: getPasses,
+    [PROTOTYPES_REQUESTED]: getPrototypes,
     [COMMAND_SUBMITTED]: submitCommand
 };
 

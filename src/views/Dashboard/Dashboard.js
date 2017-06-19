@@ -46,13 +46,6 @@ Dashboard.propTypes = {
         maxElevation: PropTypes.number.isRequired,
         groundStation: PropTypes.string.isRequired,
     })).isRequired,
-    commands: PropTypes.arrayOf(PropTypes.shape({
-        id: PropTypes.string.isRequired,
-        command: PropTypes.string.isRequired,
-        userId: PropTypes.string.isRequired,
-        status: PropTypes.string.isRequired,
-        result: PropTypes.string.isRequired
-    })).isRequired,
     onSubmit: PropTypes.func.isRequired,
     onConnect: PropTypes.func.isRequired,
     onRequestPasses: PropTypes.func.isRequired,

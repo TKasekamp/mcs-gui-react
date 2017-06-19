@@ -3,51 +3,6 @@ import PropTypes from 'prop-types';
 import TerminalForm from './TerminalForm';
 import CommandList from './CommandList';
 
-const commandPrototypes = [{
-    id: 1,
-    name: 'ping',
-    subsystems: ['OBCS', 'COM', 'EPS', 'CAM'],
-    description: 'This does a ping',
-    restricted: false,
-    parameters: [{name: 'timeStamp', description: 'Time when ping was sent', type: 'uint32', default: 0}]
-},
-    {
-        id: 2,
-        name: 'pong',
-        subsystems: ['OBCS', 'COM', 'EPS', 'CAM'],
-        description: 'This does a pong',
-        restricted: false,
-        parameters: [{name: 'timeStamp', description: 'Time when pong was sent', type: 'uint32', default: 0}]
-    },
-    {
-        id: 3,
-        name: 'ifimg',
-        subsystems: ['OBCS', 'CAM'],
-        restricted: false,
-        description: 'Initializes the storage of a firmware image.',
-        parameters: [{name: 'slot', description: 'Firmware image slot', type: 'uint8'},
-            {name: 'size', description: 'Length of the firmware image, in bytes', type: 'uint32'},
-            {name: 'version', description: 'Firmware image version identifier', type: 'uint32'},
-            {name: 'crc', description: 'Firmware image checksum', type: 'uint32'}
-        ]
-    },
-    {
-        id: 4,
-        name: 'setreel',
-        subsystems: ['OBCS'],
-        description: 'Sets reeling configuration.',
-        restricted: true,
-        parameters: [{name: 'speed', description: 'Reeling direction and speed.', type: 'int8'}]
-    },
-    {
-        id: 5,
-        name: 'getpos',
-        subsystems: ['OBCS'],
-        description: 'Requests for satellite position.',
-        restricted: false,
-        parameters: []
-    },
-];
 const TerminalCard = (props) => {
     return (
         <div className="card">
@@ -60,7 +15,7 @@ const TerminalCard = (props) => {
                         <CommandList commands={props.commands}/>
                     </div>
                     <div className="col-sm-12">
-                        <TerminalForm onSubmit={props.onSubmit} commandPrototypes={commandPrototypes}/></div>
+                        <TerminalForm onSubmit={props.onSubmit} commandPrototypes={props.commandPrototypes}/></div>
                 </div>
             </div>
         </div>
@@ -74,6 +29,19 @@ TerminalCard.propTypes = {
         userId: PropTypes.string.isRequired,
         status: PropTypes.string.isRequired,
         responseString: PropTypes.string
+    })).isRequired,
+    commandPrototypes: PropTypes.arrayOf(PropTypes.shape({
+        id: PropTypes.number.isRequired,
+        name: PropTypes.string.isRequired,
+        description: PropTypes.string.isRequired,
+        restricted: PropTypes.bool.isRequired,
+        subsystems: PropTypes.arrayOf(PropTypes.string).isRequired,
+        parameters: PropTypes.arrayOf(PropTypes.shape({
+            name: PropTypes.string.isRequired,
+            description: PropTypes.string.isRequired,
+            type: PropTypes.string.isRequired,
+            default: PropTypes.any,
+        })).isRequired
     })).isRequired
 };
 
