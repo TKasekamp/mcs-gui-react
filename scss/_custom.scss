@@ -5,7 +5,7 @@
 }
 
 .react-autosuggest__input {
-  @extend .form-control;
+  // @extend .form-control;
 }
 
 .react-autosuggest__input:focus {
@@ -29,11 +29,11 @@
 }
 
 .react-autosuggest__suggestions-list {
-  @extend .list-group;
+ // @extend .list-group;
 }
 
 .react-autosuggest__suggestion {
-  @extend .list-group-item;
+ // @extend .list-group-item;
   padding: 0.5rem 0.75rem;
 }
 

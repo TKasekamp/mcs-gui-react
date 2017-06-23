@@ -10,6 +10,13 @@ import {syncHistoryWithStore} from 'react-router-redux';
 import serverMiddleware from './middlewares/ServerMiddleware';
 import WebSocketMiddleware from './middlewares/WebSocketMiddleware';
 import {chooseServer} from './constants';
+import WebFontLoader from 'webfontloader';
+
+WebFontLoader.load({
+    google: {
+        families: ['Roboto:400', 'Material Icons'],
+    },
+});
 
 const composeStoreEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 

@@ -119,7 +119,7 @@ TerminalView.propTypes = {
     onSubmit: PropTypes.func.isRequired,
     onConnect: PropTypes.func.isRequired,
     connected: PropTypes.bool.isRequired,
-    onRequestPrototypes: PropTypes.bool.isRequired,
+    onRequestPrototypes: PropTypes.func.isRequired,
     commandPrototypes: PropTypes.arrayOf(PropTypes.shape({
         id: PropTypes.number.isRequired,
         name: PropTypes.string.isRequired,
