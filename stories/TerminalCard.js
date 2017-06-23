@@ -1,6 +1,6 @@
 import React from 'react';
 import {storiesOf} from '@kadira/storybook';
-import TerminalCard from '../components/Terminal/TerminalCard';
+import TerminalCard from '../src/components/Terminal/TerminalCard';
 
 const commandsWaiting = [
     {

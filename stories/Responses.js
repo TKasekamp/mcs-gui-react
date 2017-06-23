@@ -1,9 +1,9 @@
 import React from 'react';
 import {storiesOf} from '@kadira/storybook';
-import PingResponse from '../components/Terminal/responses/PingResponse';
-import PongResponse from '../components/Terminal/responses/PongResponse';
-import PosResponse from '../components/Terminal/responses/PosResponse';
-import DefaultResponse from '../components/Terminal/responses/DefaultResponse';
+import PingResponse from '../src/components/Terminal/responses/PingResponse';
+import PongResponse from '../src/components/Terminal/responses/PongResponse';
+import PosResponse from '../src/components/Terminal/responses/PosResponse';
+import DefaultResponse from '../src/components/Terminal/responses/DefaultResponse';
 
 const ping = {
   timestamp: '2017-06-01T21:12:55.8575978Z'

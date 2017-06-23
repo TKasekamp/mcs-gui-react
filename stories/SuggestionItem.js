@@ -1,13 +1,12 @@
 import React from 'react';
 import {storiesOf} from '@kadira/storybook';
-import CommandDescription from '../components/Terminal/fragments/CommandDescription';
+import SuggestionItem from '../src/components/Terminal/fragments/SuggestionItem';
 
 const noParams = {
     id: 0,
     name: 'ping',
     subsystems: ['OBCS', 'COM', 'EPS', 'CAM'],
     description: 'This does a ping',
-    restricted: false,
     parameters: []
 };
 
@@ -16,7 +15,6 @@ const oneParams = {
     name: 'ping',
     subsystems: ['OBCS', 'COM', 'EPS', 'CAM'],
     description: 'This does a ping',
-    restricted: false,
     parameters: [{name: 'timeStamp', description: 'Time when ping was sent', type: 'uint32', default: 0}]
 };
 
@@ -25,34 +23,23 @@ const twoParams = {
     name: 'ping',
     subsystems: ['OBCS', 'COM', 'EPS', 'CAM'],
     description: 'This does a ping',
-    restricted: false,
     parameters: [{name: 'timeStamp', description: 'Time when ping was sent', type: 'uint32', default: 0},
         {name: 'killSwitch', description: 'Kills everything', type: 'boolean', default: false}]
 };
 
-const restricted = {
-    id: 0,
-    name: 'ping',
-    subsystems: ['OBCS', 'COM', 'EPS', 'CAM'],
-    description: 'This does a ping',
-    restricted: true,
-    parameters: [{name: 'timeStamp', description: 'Time when ping was sent', type: 'uint32', default: 0}]
-};
-
-storiesOf('CommandDescription', module)
+storiesOf('SuggestionItem', module)
     .add('no params', () => {
-            return (<CommandDescription commandPrototype={noParams}/>);
+            return (<SuggestionItem id={noParams.id} parameters={noParams.parameters} name={noParams.name}
+                                    subsystems={noParams.subsystems}/>);
         }
     )
     .add('one param', () => {
-            return (<CommandDescription commandPrototype={oneParams}/>);
+            return (<SuggestionItem id={oneParams.id} parameters={oneParams.parameters} name={oneParams.name}
+                                    subsystems={oneParams.subsystems}/>);
         }
     )
     .add('two params', () => {
-            return (<CommandDescription commandPrototype={twoParams}/>);
-        }
-    )
-    .add('restricted', () => {
-            return (<CommandDescription commandPrototype={restricted}/>);
+            return (<SuggestionItem id={twoParams.id} parameters={twoParams.parameters} name={twoParams.name}
+                                    subsystems={twoParams.subsystems}/>);
         }
     );

@@ -4,7 +4,7 @@ import {connect} from 'react-redux';
 import {passesRequested} from '../../actions/index';
 import PropTypes from 'prop-types';
 import {commandSubmitted, connectRequested} from '../../actions/CommandActions';
-import {passes} from '../../stories/PassTable';
+import {passes} from '../../../stories/PassTable';
 import PassEventChart from '../../components/Passes/PassEventChart';
 import TLECard from '../../components/TLE/TLECard';
 

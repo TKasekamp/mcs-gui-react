@@ -1,6 +1,6 @@
 import React from 'react';
 import {storiesOf} from '@kadira/storybook';
-import PassStatus from '../components/Passes/PassStatus';
+import PassStatus from '../src/components/Passes/PassStatus';
 
 
 storiesOf('PassStatus', module)

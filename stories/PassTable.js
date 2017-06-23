@@ -1,6 +1,6 @@
 import React from 'react';
 import {storiesOf} from '@kadira/storybook';
-import PassTable from '../components/Passes/PassTable';
+import PassTable from '../src/components/Passes/PassTable';
 
 export const passes = [
     {
