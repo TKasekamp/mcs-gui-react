@@ -3567,3 +3567,8 @@ body {
 .aos {
   background: #ff9800;
   color: #ffffff; }
+
+.code-block {
+  background: rgba(0, 0, 0, 0.06);
+  overflow-x: auto;
+  padding: 16px; }

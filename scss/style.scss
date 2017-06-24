@@ -14,3 +14,9 @@ body {
   background: $md-orange-500;
   color: #ffffff;
 }
+
+.code-block {
+  background: rgba(0, 0, 0, .06);
+  overflow-x: auto;
+  padding: 16px;
+}

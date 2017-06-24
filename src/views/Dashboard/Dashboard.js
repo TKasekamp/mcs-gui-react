@@ -4,9 +4,9 @@ import {connect} from 'react-redux';
 import {passesRequested} from '../../actions/index';
 import PropTypes from 'prop-types';
 import {commandSubmitted, connectRequested} from '../../actions/CommandActions';
-import {passes} from '../../../stories/PassTable';
 import PassEventChart from '../../components/Passes/PassEventChart';
 import TLECard from '../../components/TLE/TLECard';
+import TLECard2 from '../../components/TLE/TLECard2';
 
 
 class Dashboard extends Component {
@@ -20,20 +20,19 @@ class Dashboard extends Component {
 
     render() {
         return (
-            <div>
-                <div className="row">
-                    <div className="col-lg-12">
-                        <PassTable passes={this.props.passes} fetchState={this.props.fetchState}/>
-                    </div>
-                    <div className="col-lg-12">
-                        <PassEventChart passes={this.props.passes} fetchState={this.props.fetchState}/>
-                    </div>
-                    <div className="col-lg-6">
-                        <TLECard/>
-                    </div>
+            <div className="md-grid">
+                <div className="md-cell md-cell--6-tablet">
+                    <TLECard/>
+                </div>
+                <div className="md-cell">
+                    <TLECard2/>
+                </div>
+                <div className="md-cell--12">
+
                 </div>
 
             </div>
+
         );
     }
 }
@@ -57,7 +56,7 @@ Dashboard.propTypes = {
 };
 
 const mapStateToProps = (state) => ({
-    passes: passes,
+    passes: [],
     fetchState: state.passes.fetchState,
     commands: state.commands.commands,
     connected: state.commands.connected
