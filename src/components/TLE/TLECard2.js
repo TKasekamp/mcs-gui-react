@@ -3,9 +3,7 @@ import PropTypes from 'prop-types';
 import {Card, CardActions} from 'react-md/lib/Cards/index';
 import {TableCardHeader} from 'react-md/lib/DataTables/index';
 import {Button} from 'react-md/lib/Buttons/index';
-//import {Component} from 'react/lib/ReactBaseClasses';
 import {Collapse} from 'react-md/lib/Helpers/index';
-import {List, ListItem} from 'react-md';
 
 const tle = {
     'ESTCUBE 1': {
@@ -116,49 +114,6 @@ class TLECard2 extends Component {
 
 
             {other}
-
-            {/*            <List>
-             <Subheader primaryText="General data"  inset/>
-             <ListItem primaryText="This is a long name"
-             rightIcon={<div>{tle[satName].rightAscensionOfTheAscendingNode}</div> }></ListItem>
-             <ListItem primaryText="This is a long name"
-             rightIcon={<div>{tle[satName].rightAscensionOfTheAscendingNode}</div> }></ListItem>
-             <ListItem primaryText="This is a long name"
-             rightIcon={<div>{tle[satName].rightAscensionOfTheAscendingNode}</div> }></ListItem>
-             <ListItem primaryText="This is a long name"
-             rightIcon={<div>{tle[satName].rightAscensionOfTheAscendingNode}</div> }></ListItem>
-             <ListItem primaryText="This is a long name"
-             rightIcon={<div>{tle[satName].rightAscensionOfTheAscendingNode}</div> }></ListItem>
-             <ListItem primaryText="This is a long name"
-             rightIcon={<div>{tle[satName].rightAscensionOfTheAscendingNode}</div> }></ListItem>
-             <ListItem primaryText="This is a long name"
-             rightIcon={<div>{tle[satName].rightAscensionOfTheAscendingNode}</div> }></ListItem>
-             <ListItem primaryText="This is a long name"
-             rightIcon={<div>{tle[satName].rightAscensionOfTheAscendingNode}</div> }></ListItem>
-             <ListItem primaryText="This is a long name"
-             rightIcon={<div>{tle[satName].rightAscensionOfTheAscendingNode}</div> }></ListItem>
-             <ListItem primaryText="This is a long name"
-             rightIcon={<div>{tle[satName].rightAscensionOfTheAscendingNode}</div> }></ListItem>
-             <ListItem primaryText="This is a long name"
-             rightIcon={<div>{tle[satName].rightAscensionOfTheAscendingNode}</div> }></ListItem>
-             <ListItem primaryText="This is a long name"
-             rightIcon={<div>{tle[satName].rightAscensionOfTheAscendingNode}</div> }></ListItem>
-             <Subheader primaryText="Numeric data"  inset/>
-             <ListItem primaryText="This is a long name"
-             rightIcon={<div>{tle[satName].rightAscensionOfTheAscendingNode}</div> }></ListItem>
-             <ListItem primaryText="This is a long name"
-             rightIcon={<div>{tle[satName].rightAscensionOfTheAscendingNode}</div> }></ListItem>
-             <ListItem primaryText="This is a long name"
-             rightIcon={<div>{tle[satName].rightAscensionOfTheAscendingNode}</div> }></ListItem>
-             <ListItem primaryText="This is a long name"
-             rightIcon={<div>{tle[satName].rightAscensionOfTheAscendingNode}</div> }></ListItem>
-             <ListItem primaryText="This is a long name"
-             rightIcon={<div>{tle[satName].rightAscensionOfTheAscendingNode}</div> }></ListItem>
-             <ListItem primaryText="This is a long name"
-             rightIcon={<div>{tle[satName].rightAscensionOfTheAscendingNode}</div> }></ListItem>
-             <ListItem primaryText="This is a long name"
-             rightIcon={<div>{tle[satName].rightAscensionOfTheAscendingNode}</div> }></ListItem>
-             </List>*/}
             <CardActions className="md-divider-border md-divider-border--top">
                 <Button flat label="Raw TLE" onClick={this._toggleCollapse} secondary/>
                 <Button flat label="Raw JSON" onClick={this._toggleJson} secondary/>

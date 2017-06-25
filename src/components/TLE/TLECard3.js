@@ -73,34 +73,6 @@ class TLECard3 extends Component {
     render() {
         const satName = Object.keys(tle)[0];
 
-        const other = <div className="md-grid">
-            <h3 className="md-cell--12 md-title"
-                style={{paddingLeft: '16px', paddingRight: '16px', marginBottom: '1em'}}>General stats</h3>
-            <Item3 primaryText={satName} secondaryText="Satellite name"/>
-            <Item3 primaryText={tle[satName].satelliteNumber} secondaryText="Satellite number"/>
-            <Item3 primaryText={tle[satName].classification} secondaryText="Classification"/>
-            <Item3 primaryText={tle[satName].launchYear} secondaryText="Launch year"/>
-            <Item3 primaryText={tle[satName].launchNumber} secondaryText="Launch number"/>
-            <Item3 primaryText={tle[satName].launchPiece} secondaryText="Launch piece"/>
-            <h3 className="md-cell--12 md-title"
-                style={{paddingLeft: '16px', paddingRight: '16px', marginBottom: '1em'}}>Numbers</h3>
-            <Item3 primaryText={tle[satName].ephemerisType} secondaryText="Ephemeris type"/>
-            <Item3 primaryText={tle[satName].elementNumber} secondaryText="Element number"/>
-            <Item3 primaryText={tle[satName].epoch} secondaryText="Epoch"/>
-            <Item3 primaryText={tle[satName].meanMotion} secondaryText="Mean motion"/>
-            <Item3 primaryText={tle[satName].meanMotionFirstDerivative} secondaryText="Mean motion first derivative"/>
-            <Item3 primaryText={tle[satName].meanMotionSecondDerivative} secondaryText="Mean motion second derivative"/>
-            <Item3 primaryText={tle[satName].eccentricity} secondaryText="Eccentricity"/>
-            <Item3 primaryText={tle[satName].inclination} secondaryText="Inclination"/>
-            <Item3 primaryText={tle[satName].perigeeArgument} secondaryText="Perigree argument"/>
-            <Item3 primaryText={tle[satName].rightAscensionOfTheAscendingNode}
-                   secondaryText="Right ascencion of the ascending node"/>
-            <Item3 primaryText={tle[satName].meanAnomaly} secondaryText="Mean anomaly"/>
-            <Item3 primaryText={tle[satName].revolutionNumberAtEpoch} secondaryText="Revolution number at epoch"/>
-            <Item3 primaryText={tle[satName].bStar} secondaryText="Bstar"/>
-        </div>;
-
-
         const lines = <pre className="code-block">
         {tle[satName].line1}
             <br/>
@@ -113,9 +85,6 @@ class TLECard3 extends Component {
 
         return <Card >
             <TableActions/>
-
-
-            {/* {other}*/}
 
             <List>
                 <Subheader primaryText="General data" inset/>
