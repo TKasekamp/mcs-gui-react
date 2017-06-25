@@ -1,13 +1,12 @@
 /**
  * Created by Tõnis Kasekamp on 28.05.2017.
  */
-import React from 'react';
+import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import {Card, CardActions} from 'react-md/lib/Cards/index';
 import {DataTable, TableBody, TableCardHeader, TableColumn, TableRow} from 'react-md/lib/DataTables/index';
 import {Button} from 'react-md/lib/Buttons/index';
 import {Collapse} from 'react-md/lib/Helpers/index';
-import {Component} from 'react/lib/ReactBaseClasses';
 
 const tle = {
     'ESTCUBE 1': {

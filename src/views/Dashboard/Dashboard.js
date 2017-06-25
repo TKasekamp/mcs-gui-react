@@ -7,6 +7,7 @@ import {commandSubmitted, connectRequested} from '../../actions/CommandActions';
 import PassEventChart from '../../components/Passes/PassEventChart';
 import TLECard from '../../components/TLE/TLECard';
 import TLECard2 from '../../components/TLE/TLECard2';
+import TLECard3 from '../../components/TLE/TLECard3';
 
 
 class Dashboard extends Component {
@@ -27,8 +28,8 @@ class Dashboard extends Component {
                 <div className="md-cell">
                     <TLECard2/>
                 </div>
-                <div className="md-cell--12">
-
+                <div className="md-cell">
+                    <TLECard3/>
                 </div>
 
             </div>
